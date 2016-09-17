@@ -14,6 +14,7 @@
 #import "GAITracker.h"
 #import "GAIDictionaryBuilder.h"
 #import "Google/Headers/GGLCore/Public/GGLContext.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #define PUSH_NOTIFICATION_APP_ID @"a97ee6a1-abf5-4206-b311-09bb350b1e85"
 
@@ -26,6 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // support facebook login
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     // Setup Google Analytics
     [self startGoogleAnalyticsTracking];
     
@@ -85,7 +89,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -93,6 +97,16 @@
     // Saves changes in the application's managed object context before the application terminates.
     
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 #define mark - Google Analytics

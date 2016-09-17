@@ -15,7 +15,7 @@
 {
   NSString *result = self;
   
-  CFStringRef originalAsCFString = (CFStringRef) objc_unretainedPointer(self);
+  CFStringRef originalAsCFString = (CFStringRef)(__bridge void *)(self);
   CFStringRef leaveAlone = CFSTR(" ");
   CFStringRef toEscape = CFSTR("\n\r?[]()$,!'*;:@&=#%+/");
   

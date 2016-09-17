@@ -181,6 +181,10 @@
 		A6F7897A1C9AFC5D00B1618E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F789791C9AFC5D00B1618E /* CoreMedia.framework */; };
 		A6F7897C1C9AFC7200B1618E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F7897B1C9AFC7200B1618E /* Accelerate.framework */; };
 		A6F789851C9AFD5700B1618E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F789841C9AFD5700B1618E /* OpenGLES.framework */; };
+		BF10221A1D8D0662007CAAA2 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022171D8D0662007CAAA2 /* FBSDKCoreKit.framework */; };
+		BF10221B1D8D0662007CAAA2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */; };
+		BF10221C1D8D0662007CAAA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */; };
+		BF1022201D8D09C7007CAAA2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF10221F1D8D09C7007CAAA2 /* Bolts.framework */; };
 		C8E1E4FC1CB2485A002808E6 /* icn_hinos.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */; };
 		C8E1E5021CB2485A002808E6 /* icn_mais.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E1E4F01CB2485A002808E6 /* icn_mais.png */; };
 /* End PBXBuildFile section */
@@ -445,6 +449,10 @@
 		A6F789791C9AFC5D00B1618E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A6F7897B1C9AFC7200B1618E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A6F789841C9AFD5700B1618E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BF1022171D8D0662007CAAA2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		BF10221F1D8D09C7007CAAA2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_hinos.png; path = Resources/Images/icn_hinos.png; sourceTree = "<group>"; };
 		C8E1E4F01CB2485A002808E6 /* icn_mais.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_mais.png; path = Resources/Images/icn_mais.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -478,10 +486,14 @@
 				233D72F31C93F25A0015A0E6 /* SystemConfiguration.framework in Frameworks */,
 				A689C0AB1C931A9B003C5AAC /* CoreGraphics.framework in Frameworks */,
 				A689C0A91C931A90003C5AAC /* Foundation.framework in Frameworks */,
+				BF10221C1D8D0662007CAAA2 /* FBSDKShareKit.framework in Frameworks */,
 				A689C0A71C931A85003C5AAC /* UIKit.framework in Frameworks */,
+				BF10221A1D8D0662007CAAA2 /* FBSDKCoreKit.framework in Frameworks */,
 				A689C0A51C931A7C003C5AAC /* iAd.framework in Frameworks */,
 				A689C0A31C931A72003C5AAC /* AVFoundation.framework in Frameworks */,
 				236BC1EE1CEB6F0700DA7371 /* GoogleMobileAds.framework in Frameworks */,
+				BF1022201D8D09C7007CAAA2 /* Bolts.framework in Frameworks */,
+				BF10221B1D8D0662007CAAA2 /* FBSDKLoginKit.framework in Frameworks */,
 				233D72F11C93EDF70015A0E6 /* OneSignal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,6 +969,7 @@
 		A6E3F3BB1C909E6B004BCEA6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF1022151D8D0637007CAAA2 /* Libraries */,
 				23289D3E1D05C8D500235F49 /* ECSlidingViewController */,
 				23D816A01CECB3EE00EBB205 /* MBProgressHUD */,
 				23D816A31CECB3EE00EBB205 /* Reachability */,
@@ -988,6 +1001,25 @@
 			children = (
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		BF1022151D8D0637007CAAA2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BF1022161D8D0650007CAAA2 /* FacebookSDKs */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		BF1022161D8D0650007CAAA2 /* FacebookSDKs */ = {
+			isa = PBXGroup;
+			children = (
+				BF10221F1D8D09C7007CAAA2 /* Bolts.framework */,
+				BF1022171D8D0662007CAAA2 /* FBSDKCoreKit.framework */,
+				BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */,
+				BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */,
+			);
+			path = FacebookSDKs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1336,6 +1368,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HarpaCrista",
+					"$(PROJECT_DIR)/HarpaCrista/Libraries/FacebookSDKs",
 				);
 				INFOPLIST_FILE = HarpaCrista/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -1363,6 +1396,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HarpaCrista",
+					"$(PROJECT_DIR)/HarpaCrista/Libraries/FacebookSDKs",
 				);
 				INFOPLIST_FILE = HarpaCrista/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;

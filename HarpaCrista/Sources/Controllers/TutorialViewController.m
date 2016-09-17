@@ -13,6 +13,8 @@
 #import "ECSlidingViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "FBSDKLoginKit/FBSDKLoginKit.h"
 
 @interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
@@ -315,6 +317,48 @@
 
 - (NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
     return 0;
+}
+
+#pragma mark - facebook login
+- (IBAction)didClickLoginFBButton:(id)sender {
+    [self loginFacebook];
+}
+
+- (void)loginFacebook {
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [login logOut];
+        [FBSDKAccessToken setCurrentAccessToken:nil];
+    }
+    [login logInWithReadPermissions:@[@"public_profile", @"email"]
+                 fromViewController:self
+                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                if (error) {
+                                    NSLog(@"error login facebook: %@", error);
+                                } else if (result.isCancelled) {
+                                    NSLog(@"result %@", result);
+                                } else if ([result.grantedPermissions containsObject:@"email"]) {
+                                    NSLog(@"Im here");
+                                    [self getUserData];
+                                }
+                            }];
+}
+
+- (void)getUserData {
+    if (![FBSDKAccessToken currentAccessToken]) {
+        return;
+    }
+    NSDictionary *parameters = @{
+                                 @"fields": @"id,name,email,birthday,gender,last_name,first_name,location,picture{url}"
+                                 };
+    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
+    [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        if (error) {
+            NSLog(@"error when request facebook graph: %@", error);
+            return;
+        }
+        NSLog(@"result: %@", result);
+    }];
 }
 
 @end
