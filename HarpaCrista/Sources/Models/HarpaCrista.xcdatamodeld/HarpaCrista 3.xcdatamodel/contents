@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="CDSong" representedClassName="CDSong" syncable="YES">
-        <attribute name="cdChord" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cdIsFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="cdSongID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="cdSongLink" optional="YES" attributeType="String" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CDArticle" syncable="YES">
+        <attribute name="cdDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdDetail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="cdTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="CDInstrument" syncable="YES">
+        <attribute name="cdAvatar" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="cdIsFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="cdName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CDNotification" syncable="YES">
+        <attribute name="cdDetail" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CDPlaylist" syncable="YES">
+        <attribute name="cdName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="songInfo" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDSongInfo" inverseName="playlist" inverseEntity="CDSongInfo" syncable="YES"/>
+    </entity>
+    <entity name="CDSong" representedClassName="CDSong" syncable="YES">
+        <attribute name="cdChord" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdIsFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="cdSongID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="cdSongLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="songInfo" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDSongInfo" inverseName="song" inverseEntity="CDSongInfo" syncable="YES"/>
+    </entity>
+    <entity name="CDSongInfo" syncable="YES">
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPlaylist" inverseName="songInfo" inverseEntity="CDPlaylist" syncable="YES"/>
+        <relationship name="song" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSong" inverseName="songInfo" inverseEntity="CDSong" syncable="YES"/>
+    </entity>
+    <entity name="CDUser" syncable="YES">
+        <attribute name="cdAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdAvatar" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="cdBio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdCountry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdLastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdState" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CDSong" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="CDSong" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="CDUser" positionX="-54" positionY="27" width="128" height="180"/>
+        <element name="CDInstrument" positionX="-36" positionY="81" width="128" height="90"/>
+        <element name="CDArticle" positionX="-18" positionY="99" width="128" height="105"/>
+        <element name="CDNotification" positionX="0" positionY="108" width="128" height="60"/>
+        <element name="CDPlaylist" positionX="18" positionY="117" width="128" height="75"/>
+        <element name="CDSongInfo" positionX="36" positionY="126" width="128" height="75"/>
     </elements>
 </model>

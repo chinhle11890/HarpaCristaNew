@@ -318,6 +318,7 @@
 		23289D5A1D05CCB700235F49 /* SlideMenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SlideMenuItems.plist; path = Resources/Files/SlideMenuItems.plist; sourceTree = "<group>"; };
 		23289D5C1D05D55700235F49 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEMenuViewController.h; path = Sources/Controllers/MEMenuViewController.h; sourceTree = "<group>"; };
 		23289D5D1D05D55700235F49 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEMenuViewController.m; path = Sources/Controllers/MEMenuViewController.m; sourceTree = "<group>"; };
+		2328DDD71D8D547600C6E534 /* HarpaCrista 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HarpaCrista 3.xcdatamodel"; sourceTree = "<group>"; };
 		2328FAAD1CC1273F00924631 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		2328FAAF1CC1273F00924631 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		2328FAB01CC1273F00924631 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -1381,7 +1382,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = HarpaCrista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a28fc586-3a35-405b-b01d-4775e22cb0f6";
+				PROVISIONING_PROFILE = "eb7b417a-7cdc-4c42-a2c6-5a9cf72ff64e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1409,7 +1410,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = HarpaCrista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a28fc586-3a35-405b-b01d-4775e22cb0f6";
+				PROVISIONING_PROFILE = "eb7b417a-7cdc-4c42-a2c6-5a9cf72ff64e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1441,10 +1442,11 @@
 		23702F451D279B5C00BEEA63 /* HarpaCrista.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2328DDD71D8D547600C6E534 /* HarpaCrista 3.xcdatamodel */,
 				23702F481D279F4C00BEEA63 /* HarpaCrista 2.xcdatamodel */,
 				23702F461D279B5C00BEEA63 /* HarpaCrista.xcdatamodel */,
 			);
-			currentVersion = 23702F481D279F4C00BEEA63 /* HarpaCrista 2.xcdatamodel */;
+			currentVersion = 2328DDD71D8D547600C6E534 /* HarpaCrista 3.xcdatamodel */;
 			name = HarpaCrista.xcdatamodeld;
 			path = Sources/Models/HarpaCrista.xcdatamodeld;
 			sourceTree = "<group>";
