@@ -26,15 +26,14 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import <MessageUI/MessageUI.h>
 
+#define kLogoutCellIndex 12
+
 static MEMenuViewController *__shared = nil;
 
 @interface MEMenuViewController ()<UITableViewDataSource,UITableViewDelegate, MFMailComposeViewControllerDelegate> {
     __weak IBOutlet UITableView *_tableView;
-    __weak IBOutlet UILabel *_lblTitle;
     
     NSArray *_arrayMenuItems;
-    
-    UINavigationController *_hinosNavigationController;
 }
 
 @property (nonatomic, strong) NSArray *menuItems;
@@ -46,17 +45,15 @@ static MEMenuViewController *__shared = nil;
 - (void)viewDidLoad {
     _arrayMenuItems = [[NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SlideMenuItems" ofType:@"plist"]] mutableCopy];
     
-    _hinosNavigationController = (UINavigationController *)self.slidingViewController.topViewController;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuItemChoose:) name:@"MenuItemChoose" object:nil];
 }
 
-- (void) menuItemChoose:(NSNotification*)notification {
+- (void)menuItemChoose:(NSNotification*)notification {
     if ([notification.name isEqualToString:@"MenuItemChoose"]) {
         int index = [(NSNumber*)notification.object intValue];
         switch (index) {
             case 1:
-                self.slidingViewController.topViewController = _hinosNavigationController;
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"naviHinosVC"];
                 [self.slidingViewController resetTopViewAnimated:YES];
                 break;
             case 2:
@@ -76,11 +73,17 @@ static MEMenuViewController *__shared = nil;
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 5;
+    if (section == 0) {
+        return 6;
+    } else if (section == 1) {
+        return 4;
+    } else {
+        return 1;
+    }
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,7 +91,12 @@ static MEMenuViewController *__shared = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dict = _arrayMenuItems[indexPath.section*5 + indexPath.row];
+    NSDictionary *dict;
+    if (indexPath.section < 2) {
+        dict = _arrayMenuItems[indexPath.section*6 + indexPath.row];
+    } else {
+        dict = _arrayMenuItems[kLogoutCellIndex];
+    }
     
     static NSString *cellIdentifier = @"MenuSlideBarTableViewCell";
     MenuSlideBarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -101,6 +109,12 @@ static MEMenuViewController *__shared = nil;
     cell.lblTitle.text = dict[@"title"];
     cell.imvIcon.image  = [UIImage imageNamed:dict[@"icon"]];
     
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.lblNumberOfUnSeenArticles.hidden = NO;
+    } else {
+        cell.lblNumberOfUnSeenArticles.hidden = YES;
+    }
+    
     return cell;
 }
 
@@ -110,7 +124,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (float)3/4 * screenRect.size.width, 44.0)];
     //headerView.contentMode = UIViewContentModeScaleToFill;
@@ -131,7 +145,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     headerLabel.textAlignment = NSTextAlignmentCenter;
     [headerView addSubview: headerLabel];
     
-    if (section == 1) {
+    if (section == 2) {
         headerLabel.text = @"Harpa Cristã com Acordes © 2016";
     }
     
@@ -145,18 +159,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                self.slidingViewController.topViewController = _hinosNavigationController;
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"naviHomeVC"];
                 break;
             case 1:
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoritosNavigationController"];
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"naviHinosVC"];
                 break;
             case 2:
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TunerNavigationController"];
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FavoritosNavigationController"];
                 break;
             case 3:
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MetronomoNavigationController"];
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TunerNavigationController"];
                 break;
             case 4:
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MetronomoNavigationController"];
+                break;
+            case 5:
                 self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
                 break;
                 
@@ -167,9 +184,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     } else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://harpacca.com/perguntas-e-respostas/"]];
                 break;
             case 1:
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://harpacca.com/perguntas-e-respostas/"]];
+                break;
+            case 2:
                 if ([MFMailComposeViewController canSendMail]) {
                     // Email Subject
                     NSString *emailTitle = @"Contact from app";
@@ -191,10 +210,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                     [alert show];
                 }
                 break;
-            case 2:
+            case 3:
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/harpa-crista-com-acordes/id903898552?mt=8"]];
                 break;
-            case 3: {
+            case 4: {
                 NSString *textToShare = @"Achei o melhor aplicativo evangélico! @harpacrista7\n- Android: https://play.google.com/store/apps/details?id=com.harpacrista\n- iOS: https://itunes.apple.com/us/app/harpa-crista-com-acordes/id903898552?mt=8";
                 
                 UISimpleTextPrintFormatter *printData = [[UISimpleTextPrintFormatter alloc]
@@ -207,18 +226,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                 [self presentViewController:controller animated:YES completion:nil];
                 break;
             }
-            case 4:
+            case 5:
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://harpacca.com/"]];
                 break;
                 
             default:
                 break;
         }
+    } else if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            // Handle Logout here
+        }
     }
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     switch (result) {
         case MFMailComposeResultCancelled:
             NSLog(@"Mail cancelled");
@@ -238,16 +261,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark - Storyboard prepare segues
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"goToMais"]) {
-        NSLog(@"about");
-    }
-    else if ([segue.identifier isEqualToString:@"upgradeAccount"]) {
-        NSLog(@"upgradeAccount");
-    }
 }
 
 @end

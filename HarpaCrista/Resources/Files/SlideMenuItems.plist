@@ -6,6 +6,12 @@
 		<key>icon</key>
 		<string>icn_hinos</string>
 		<key>title</key>
+		<string>Home</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>icn_hinos</string>
+		<key>title</key>
 		<string>Hinos</string>
 	</dict>
 	<dict>
@@ -36,6 +42,12 @@
 		<key>icon</key>
 		<string>icn_ajuda</string>
 		<key>title</key>
+		<string>Perfil</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>icn_ajuda</string>
+		<key>title</key>
 		<string>Ajuda</string>
 	</dict>
 	<dict>
@@ -61,6 +73,12 @@
 		<string>icn_recursos</string>
 		<key>title</key>
 		<string>Recursos</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>icn_recursos</string>
+		<key>title</key>
+		<string>Logout</string>
 	</dict>
 </array>
 </plist>

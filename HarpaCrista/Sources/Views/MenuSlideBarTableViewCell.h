@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imvIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lblNumberOfUnSeenArticles;
 
 @end

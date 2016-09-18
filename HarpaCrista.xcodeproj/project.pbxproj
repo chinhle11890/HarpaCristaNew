@@ -128,6 +128,8 @@
 		236BC1FC1CEB6FFF00DA7371 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236BC1FB1CEB6FFF00DA7371 /* StoreKit.framework */; };
 		23702F471D279B5C00BEEA63 /* HarpaCrista.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23702F451D279B5C00BEEA63 /* HarpaCrista.xcdatamodeld */; };
 		237A1E4D1D0D547D00A97583 /* DetailMenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237A1E4C1D0D547D00A97583 /* DetailMenuItems.plist */; };
+		238877591D8E9BC500BCBB5E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238877581D8E9BC500BCBB5E /* HomeViewController.m */; };
+		2388775C1D8E9BE900BCBB5E /* ArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2388775B1D8E9BE900BCBB5E /* ArticleTableViewCell.m */; };
 		238F80F81D1982BF00BDBDAD /* icn_ajuda.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80EC1D1982BF00BDBDAD /* icn_ajuda.png */; };
 		238F80F91D1982BF00BDBDAD /* icn_contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80ED1D1982BF00BDBDAD /* icn_contact.png */; };
 		238F80FB1D1982BF00BDBDAD /* icn_like.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80EF1D1982BF00BDBDAD /* icn_like.png */; };
@@ -368,6 +370,10 @@
 		23702F461D279B5C00BEEA63 /* HarpaCrista.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HarpaCrista.xcdatamodel; sourceTree = "<group>"; };
 		23702F481D279F4C00BEEA63 /* HarpaCrista 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HarpaCrista 2.xcdatamodel"; sourceTree = "<group>"; };
 		237A1E4C1D0D547D00A97583 /* DetailMenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DetailMenuItems.plist; path = Resources/Files/DetailMenuItems.plist; sourceTree = "<group>"; };
+		238877571D8E9BC500BCBB5E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Sources/Controllers/HomeViewController.h; sourceTree = "<group>"; };
+		238877581D8E9BC500BCBB5E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Sources/Controllers/HomeViewController.m; sourceTree = "<group>"; };
+		2388775A1D8E9BE900BCBB5E /* ArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleTableViewCell.h; path = Sources/Views/ArticleTableViewCell.h; sourceTree = "<group>"; };
+		2388775B1D8E9BE900BCBB5E /* ArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleTableViewCell.m; path = Sources/Views/ArticleTableViewCell.m; sourceTree = "<group>"; };
 		238F80EC1D1982BF00BDBDAD /* icn_ajuda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_ajuda.png; path = Resources/Images/icn_ajuda.png; sourceTree = "<group>"; };
 		238F80ED1D1982BF00BDBDAD /* icn_contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_contact.png; path = Resources/Images/icn_contact.png; sourceTree = "<group>"; };
 		238F80EF1D1982BF00BDBDAD /* icn_like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_like.png; path = Resources/Images/icn_like.png; sourceTree = "<group>"; };
@@ -655,6 +661,8 @@
 				A601EA561C8AB03100E0AE3F /* IntroScreen.storyboard */,
 				235762AD1D09C6D300AD2073 /* MenuSlideBarTableViewCell.h */,
 				235762AE1D09C6D300AD2073 /* MenuSlideBarTableViewCell.m */,
+				2388775A1D8E9BE900BCBB5E /* ArticleTableViewCell.h */,
+				2388775B1D8E9BE900BCBB5E /* ArticleTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -682,6 +690,8 @@
 				23B85A321C85E32F00144193 /* HinosDetailViewController.m */,
 				23B85A331C85E32F00144193 /* SettingsViewController.h */,
 				23B85A341C85E32F00144193 /* SettingsViewController.m */,
+				238877571D8E9BC500BCBB5E /* HomeViewController.h */,
+				238877581D8E9BC500BCBB5E /* HomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1169,6 +1179,7 @@
 				230534D91CA2F9F000ACEEDA /* NSURL+QueryInspector.m in Sources */,
 				230534E31CA2F9F000ACEEDA /* LRRestyClientStreamingDelegate.m in Sources */,
 				230534E01CA2F9F000ACEEDA /* LRRestyClient.m in Sources */,
+				238877591D8E9BC500BCBB5E /* HomeViewController.m in Sources */,
 				230534E41CA2F9F000ACEEDA /* LRRestyHTTPClient.m in Sources */,
 				230534D01CA2F9F000ACEEDA /* NSArray+Json.m in Sources */,
 				230534861CA2F9A000ACEEDA /* JSONObject.m in Sources */,
@@ -1177,6 +1188,7 @@
 				230534CE1CA2F9F000ACEEDA /* FFTHelper.mm in Sources */,
 				230534D81CA2F9F000ACEEDA /* NSString+QueryString.m in Sources */,
 				230534DF1CA2F9F000ACEEDA /* LRRestyClient+PUT.m in Sources */,
+				2388775C1D8E9BE900BCBB5E /* ArticleTableViewCell.m in Sources */,
 				235762AF1D09C6D300AD2073 /* MenuSlideBarTableViewCell.m in Sources */,
 				230534D61CA2F9F000ACEEDA /* NSObject+Tap.m in Sources */,
 				230534EB1CA2F9F000ACEEDA /* mo_audio.mm in Sources */,
