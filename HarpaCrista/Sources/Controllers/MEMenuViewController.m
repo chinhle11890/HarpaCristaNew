@@ -163,7 +163,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:

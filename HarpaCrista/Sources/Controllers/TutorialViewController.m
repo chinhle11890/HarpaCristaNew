@@ -18,6 +18,8 @@
 #import <Google/SignIn.h>
 #import "UserInfo.h"
 #import "AppDelegate.h"
+#import "CDUserInfo+CoreDataClass.h"
+#import "CDUser+CoreDataProperties.h"
 
 @interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate, GIDSignInDelegate, GIDSignInUIDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
@@ -400,6 +402,17 @@
         NSString *email = result[@"email"];
         if (email) {
             [self submitEmailAction:email];
+            
+//            AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            CDUserInfo *userInfo = [[CDUserInfo alloc] initWithContext:appdelegate.managedObjectContext];
+//            CDUser *user = [[CDUser alloc] initWithContext:appdelegate.managedObjectContext];
+//            user.cdFirstName = @"";
+//            user.cdLastName = @"";
+//            user.cdEmail = @"";
+//            user.cdAvatar = nil;
+//            
+//            userInfo.user = nil;
+//            [appdelegate saveContext];
         }
     }];
 }
