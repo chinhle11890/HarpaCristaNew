@@ -27,6 +27,7 @@
 #import <MessageUI/MessageUI.h>
 
 #define kLogoutCellIndex 12
+#define kFooterHeight 44.0f
 
 static MEMenuViewController *__shared = nil;
 
@@ -87,7 +88,7 @@ static MEMenuViewController *__shared = nil;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    return 44.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -124,13 +125,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 2) {
+        return kFooterHeight;
+    }
+    return 20.0f;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
-    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (float)3/4 * screenRect.size.width, 44.0)];
+    UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (float)3/4 * screenRect.size.width, kFooterHeight)];
     //headerView.contentMode = UIViewContentModeScaleToFill;
     
     // Add the label
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (float)3/4 * screenRect.size.width, 44.0)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, (float)3/4 * screenRect.size.width, kFooterHeight)];
     headerLabel.backgroundColor = [UIColor clearColor];
     headerLabel.opaque = NO;
     headerLabel.textColor = [UIColor whiteColor];

@@ -75,8 +75,6 @@
 		2328FABB1CC1279B00924631 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABA1CC1279B00924631 /* CoreData.framework */; };
 		2328FABD1CC129B500924631 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABC1CC129B500924631 /* libsqlite3.tbd */; };
 		2328FABF1CC129BF00924631 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABE1CC129BF00924631 /* libz.tbd */; };
-		232D55A41C871CC9002798F4 /* CDSong+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D55A11C871CC9002798F4 /* CDSong+CoreDataProperties.m */; };
-		232D55A51C871CC9002798F4 /* CDSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 232D55A31C871CC9002798F4 /* CDSong.m */; };
 		232D55C11C87269A002798F4 /* ic_metronome.png in Resources */ = {isa = PBXBuildFile; fileRef = 232D55AD1C87269A002798F4 /* ic_metronome.png */; };
 		232D55C81C87269A002798F4 /* ic_star_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 232D55B41C87269A002798F4 /* ic_star_selected.png */; };
 		232D55C91C87269A002798F4 /* ic_star_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 232D55B51C87269A002798F4 /* ic_star_yellow.png */; };
@@ -139,6 +137,22 @@
 		238F81001D1982BF00BDBDAD /* icn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80F41D1982BF00BDBDAD /* icn_share.png */; };
 		238F81021D1982BF00BDBDAD /* icn_tuner.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80F61D1982BF00BDBDAD /* icn_tuner.png */; };
 		238F81031D1982BF00BDBDAD /* img_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 238F80F71D1982BF00BDBDAD /* img_logo.png */; };
+		23AA711C1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA70FD1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.m */; };
+		23AA711D1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA70FF1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.m */; };
+		23AA711E1D8EE26600E41DCB /* CDArticle+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71011D8EE26600E41DCB /* CDArticle+CoreDataClass.m */; };
+		23AA711F1D8EE26600E41DCB /* CDArticle+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71031D8EE26600E41DCB /* CDArticle+CoreDataProperties.m */; };
+		23AA71201D8EE26600E41DCB /* CDPlaylist+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71051D8EE26600E41DCB /* CDPlaylist+CoreDataClass.m */; };
+		23AA71211D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71071D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.m */; };
+		23AA71221D8EE26600E41DCB /* CDInstrument+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71091D8EE26600E41DCB /* CDInstrument+CoreDataClass.m */; };
+		23AA71231D8EE26600E41DCB /* CDInstrument+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA710B1D8EE26600E41DCB /* CDInstrument+CoreDataProperties.m */; };
+		23AA71241D8EE26600E41DCB /* CDSong+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA710D1D8EE26600E41DCB /* CDSong+CoreDataClass.m */; };
+		23AA71251D8EE26600E41DCB /* CDSong+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA710F1D8EE26600E41DCB /* CDSong+CoreDataProperties.m */; };
+		23AA71261D8EE26600E41DCB /* CDNotification+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71111D8EE26600E41DCB /* CDNotification+CoreDataClass.m */; };
+		23AA71271D8EE26600E41DCB /* CDNotification+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71131D8EE26600E41DCB /* CDNotification+CoreDataProperties.m */; };
+		23AA71281D8EE26600E41DCB /* CDSongInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71151D8EE26600E41DCB /* CDSongInfo+CoreDataClass.m */; };
+		23AA71291D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71171D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.m */; };
+		23AA712A1D8EE26600E41DCB /* CDUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA71191D8EE26600E41DCB /* CDUser+CoreDataClass.m */; };
+		23AA712B1D8EE26600E41DCB /* CDUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 23AA711B1D8EE26600E41DCB /* CDUser+CoreDataProperties.m */; };
 		23B346E21D0DA6CE0090506C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B346E11D0DA6CE0090506C /* QuartzCore.framework */; };
 		23B346E41D0DA6F80090506C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B346E31D0DA6F80090506C /* AssetsLibrary.framework */; };
 		23B859DB1C85D9D500144193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B859DA1C85D9D500144193 /* main.m */; };
@@ -315,10 +329,6 @@
 		2328FABA1CC1279B00924631 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2328FABC1CC129B500924631 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2328FABE1CC129BF00924631 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		232D55A01C871CC9002798F4 /* CDSong+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDSong+CoreDataProperties.h"; path = "Sources/Models/CDSong+CoreDataProperties.h"; sourceTree = "<group>"; };
-		232D55A11C871CC9002798F4 /* CDSong+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDSong+CoreDataProperties.m"; path = "Sources/Models/CDSong+CoreDataProperties.m"; sourceTree = "<group>"; };
-		232D55A21C871CC9002798F4 /* CDSong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSong.h; path = Sources/Models/CDSong.h; sourceTree = "<group>"; };
-		232D55A31C871CC9002798F4 /* CDSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSong.m; path = Sources/Models/CDSong.m; sourceTree = "<group>"; };
 		232D55AD1C87269A002798F4 /* ic_metronome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_metronome.png; path = Resources/Images/ic_metronome.png; sourceTree = "<group>"; };
 		232D55B41C87269A002798F4 /* ic_star_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_star_selected.png; path = Resources/Images/ic_star_selected.png; sourceTree = "<group>"; };
 		232D55B51C87269A002798F4 /* ic_star_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_star_yellow.png; path = Resources/Images/ic_star_yellow.png; sourceTree = "<group>"; };
@@ -384,6 +394,38 @@
 		238F80F41D1982BF00BDBDAD /* icn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_share.png; path = Resources/Images/icn_share.png; sourceTree = "<group>"; };
 		238F80F61D1982BF00BDBDAD /* icn_tuner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_tuner.png; path = Resources/Images/icn_tuner.png; sourceTree = "<group>"; };
 		238F80F71D1982BF00BDBDAD /* img_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img_logo.png; path = Resources/Images/img_logo.png; sourceTree = "<group>"; };
+		23AA70FC1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDUserInfo+CoreDataClass.h"; path = "Sources/Models/CDUserInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA70FD1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDUserInfo+CoreDataClass.m"; path = "Sources/Models/CDUserInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA70FE1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDUserInfo+CoreDataProperties.h"; path = "Sources/Models/CDUserInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA70FF1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDUserInfo+CoreDataProperties.m"; path = "Sources/Models/CDUserInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71001D8EE26600E41DCB /* CDArticle+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDArticle+CoreDataClass.h"; path = "Sources/Models/CDArticle+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71011D8EE26600E41DCB /* CDArticle+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDArticle+CoreDataClass.m"; path = "Sources/Models/CDArticle+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA71021D8EE26600E41DCB /* CDArticle+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDArticle+CoreDataProperties.h"; path = "Sources/Models/CDArticle+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA71031D8EE26600E41DCB /* CDArticle+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDArticle+CoreDataProperties.m"; path = "Sources/Models/CDArticle+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71041D8EE26600E41DCB /* CDPlaylist+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDPlaylist+CoreDataClass.h"; path = "Sources/Models/CDPlaylist+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71051D8EE26600E41DCB /* CDPlaylist+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDPlaylist+CoreDataClass.m"; path = "Sources/Models/CDPlaylist+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA71061D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDPlaylist+CoreDataProperties.h"; path = "Sources/Models/CDPlaylist+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA71071D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDPlaylist+CoreDataProperties.m"; path = "Sources/Models/CDPlaylist+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71081D8EE26600E41DCB /* CDInstrument+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDInstrument+CoreDataClass.h"; path = "Sources/Models/CDInstrument+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71091D8EE26600E41DCB /* CDInstrument+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDInstrument+CoreDataClass.m"; path = "Sources/Models/CDInstrument+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA710A1D8EE26600E41DCB /* CDInstrument+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDInstrument+CoreDataProperties.h"; path = "Sources/Models/CDInstrument+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA710B1D8EE26600E41DCB /* CDInstrument+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDInstrument+CoreDataProperties.m"; path = "Sources/Models/CDInstrument+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA710C1D8EE26600E41DCB /* CDSong+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDSong+CoreDataClass.h"; path = "Sources/Models/CDSong+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA710D1D8EE26600E41DCB /* CDSong+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDSong+CoreDataClass.m"; path = "Sources/Models/CDSong+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA710E1D8EE26600E41DCB /* CDSong+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDSong+CoreDataProperties.h"; path = "Sources/Models/CDSong+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA710F1D8EE26600E41DCB /* CDSong+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDSong+CoreDataProperties.m"; path = "Sources/Models/CDSong+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71101D8EE26600E41DCB /* CDNotification+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDNotification+CoreDataClass.h"; path = "Sources/Models/CDNotification+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71111D8EE26600E41DCB /* CDNotification+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDNotification+CoreDataClass.m"; path = "Sources/Models/CDNotification+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA71121D8EE26600E41DCB /* CDNotification+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDNotification+CoreDataProperties.h"; path = "Sources/Models/CDNotification+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA71131D8EE26600E41DCB /* CDNotification+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDNotification+CoreDataProperties.m"; path = "Sources/Models/CDNotification+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71141D8EE26600E41DCB /* CDSongInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDSongInfo+CoreDataClass.h"; path = "Sources/Models/CDSongInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71151D8EE26600E41DCB /* CDSongInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDSongInfo+CoreDataClass.m"; path = "Sources/Models/CDSongInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA71161D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDSongInfo+CoreDataProperties.h"; path = "Sources/Models/CDSongInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA71171D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDSongInfo+CoreDataProperties.m"; path = "Sources/Models/CDSongInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		23AA71181D8EE26600E41DCB /* CDUser+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDUser+CoreDataClass.h"; path = "Sources/Models/CDUser+CoreDataClass.h"; sourceTree = "<group>"; };
+		23AA71191D8EE26600E41DCB /* CDUser+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDUser+CoreDataClass.m"; path = "Sources/Models/CDUser+CoreDataClass.m"; sourceTree = "<group>"; };
+		23AA711A1D8EE26600E41DCB /* CDUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDUser+CoreDataProperties.h"; path = "Sources/Models/CDUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		23AA711B1D8EE26600E41DCB /* CDUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDUser+CoreDataProperties.m"; path = "Sources/Models/CDUser+CoreDataProperties.m"; sourceTree = "<group>"; };
 		23B346E11D0DA6CE0090506C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		23B346E31D0DA6F80090506C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		23B859D61C85D9D500144193 /* HarpaCrista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarpaCrista.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,11 +744,39 @@
 		23B859F71C85DA8600144193 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				23AA70FC1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.h */,
+				23AA70FD1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.m */,
+				23AA70FE1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.h */,
+				23AA70FF1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.m */,
+				23AA71001D8EE26600E41DCB /* CDArticle+CoreDataClass.h */,
+				23AA71011D8EE26600E41DCB /* CDArticle+CoreDataClass.m */,
+				23AA71021D8EE26600E41DCB /* CDArticle+CoreDataProperties.h */,
+				23AA71031D8EE26600E41DCB /* CDArticle+CoreDataProperties.m */,
+				23AA71041D8EE26600E41DCB /* CDPlaylist+CoreDataClass.h */,
+				23AA71051D8EE26600E41DCB /* CDPlaylist+CoreDataClass.m */,
+				23AA71061D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.h */,
+				23AA71071D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.m */,
+				23AA71081D8EE26600E41DCB /* CDInstrument+CoreDataClass.h */,
+				23AA71091D8EE26600E41DCB /* CDInstrument+CoreDataClass.m */,
+				23AA710A1D8EE26600E41DCB /* CDInstrument+CoreDataProperties.h */,
+				23AA710B1D8EE26600E41DCB /* CDInstrument+CoreDataProperties.m */,
+				23AA710C1D8EE26600E41DCB /* CDSong+CoreDataClass.h */,
+				23AA710D1D8EE26600E41DCB /* CDSong+CoreDataClass.m */,
+				23AA710E1D8EE26600E41DCB /* CDSong+CoreDataProperties.h */,
+				23AA710F1D8EE26600E41DCB /* CDSong+CoreDataProperties.m */,
+				23AA71101D8EE26600E41DCB /* CDNotification+CoreDataClass.h */,
+				23AA71111D8EE26600E41DCB /* CDNotification+CoreDataClass.m */,
+				23AA71121D8EE26600E41DCB /* CDNotification+CoreDataProperties.h */,
+				23AA71131D8EE26600E41DCB /* CDNotification+CoreDataProperties.m */,
+				23AA71141D8EE26600E41DCB /* CDSongInfo+CoreDataClass.h */,
+				23AA71151D8EE26600E41DCB /* CDSongInfo+CoreDataClass.m */,
+				23AA71161D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.h */,
+				23AA71171D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.m */,
+				23AA71181D8EE26600E41DCB /* CDUser+CoreDataClass.h */,
+				23AA71191D8EE26600E41DCB /* CDUser+CoreDataClass.m */,
+				23AA711A1D8EE26600E41DCB /* CDUser+CoreDataProperties.h */,
+				23AA711B1D8EE26600E41DCB /* CDUser+CoreDataProperties.m */,
 				23702F451D279B5C00BEEA63 /* HarpaCrista.xcdatamodeld */,
-				232D55A01C871CC9002798F4 /* CDSong+CoreDataProperties.h */,
-				232D55A11C871CC9002798F4 /* CDSong+CoreDataProperties.m */,
-				232D55A21C871CC9002798F4 /* CDSong.h */,
-				232D55A31C871CC9002798F4 /* CDSong.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1166,46 +1236,60 @@
 				23289D501D05C8D500235F49 /* ECSlidingViewController.m in Sources */,
 				23B85A351C85E32F00144193 /* FavoritosViewController.m in Sources */,
 				230534E11CA2F9F000ACEEDA /* LRRestyClientBlockDelegate.m in Sources */,
+				23AA71281D8EE26600E41DCB /* CDSongInfo+CoreDataClass.m in Sources */,
+				23AA71231D8EE26600E41DCB /* CDInstrument+CoreDataProperties.m in Sources */,
 				230534D21CA2F9F000ACEEDA /* NSDictionary+Json.m in Sources */,
 				230534EF1CA2FA6C00ACEEDA /* Constants.m in Sources */,
 				230534DB1CA2F9F000ACEEDA /* LRResty.m in Sources */,
 				23D816A61CECB3EE00EBB205 /* MBProgressHUD.m in Sources */,
 				2305347D1CA2F88D00ACEEDA /* TutorialViewController.m in Sources */,
+				23AA71201D8EE26600E41DCB /* CDPlaylist+CoreDataClass.m in Sources */,
 				2305347A1CA2F88D00ACEEDA /* MetronomoViewController.m in Sources */,
+				23AA71211D8EE26600E41DCB /* CDPlaylist+CoreDataProperties.m in Sources */,
 				230534DD1CA2F9F000ACEEDA /* LRRestyClient+GET.m in Sources */,
 				230534D41CA2F9F000ACEEDA /* NSObject+Block.m in Sources */,
+				23AA71291D8EE26600E41DCB /* CDSongInfo+CoreDataProperties.m in Sources */,
 				230534DE1CA2F9F000ACEEDA /* LRRestyClient+POST.m in Sources */,
 				23289D4D1D05C8D500235F49 /* ECSlidingAnimationController.m in Sources */,
 				230534801CA2F91C00ACEEDA /* ChangeToneCollectionViewCell.m in Sources */,
 				2305347C1CA2F88D00ACEEDA /* TunerViewController.mm in Sources */,
-				232D55A41C871CC9002798F4 /* CDSong+CoreDataProperties.m in Sources */,
 				230534CF1CA2F9F000ACEEDA /* LRRestyResponse+Json.m in Sources */,
+				23AA71241D8EE26600E41DCB /* CDSong+CoreDataClass.m in Sources */,
 				230534EC1CA2F9F000ACEEDA /* mo_gfx.mm in Sources */,
+				23AA71271D8EE26600E41DCB /* CDNotification+CoreDataProperties.m in Sources */,
 				230534D91CA2F9F000ACEEDA /* NSURL+QueryInspector.m in Sources */,
+				23AA712A1D8EE26600E41DCB /* CDUser+CoreDataClass.m in Sources */,
 				230534E31CA2F9F000ACEEDA /* LRRestyClientStreamingDelegate.m in Sources */,
 				230534E01CA2F9F000ACEEDA /* LRRestyClient.m in Sources */,
 				238877591D8E9BC500BCBB5E /* HomeViewController.m in Sources */,
 				230534E41CA2F9F000ACEEDA /* LRRestyHTTPClient.m in Sources */,
 				230534D01CA2F9F000ACEEDA /* NSArray+Json.m in Sources */,
 				230534861CA2F9A000ACEEDA /* JSONObject.m in Sources */,
+				23AA71221D8EE26600E41DCB /* CDInstrument+CoreDataClass.m in Sources */,
 				23D816A71CECB3EE00EBB205 /* Reachability.m in Sources */,
 				2305347B1CA2F88D00ACEEDA /* PageItemViewController.m in Sources */,
 				BFC7053B1D8E99A9005C64AC /* UserInfo.m in Sources */,
 				230534CE1CA2F9F000ACEEDA /* FFTHelper.mm in Sources */,
 				230534D81CA2F9F000ACEEDA /* NSString+QueryString.m in Sources */,
+				23AA711F1D8EE26600E41DCB /* CDArticle+CoreDataProperties.m in Sources */,
 				230534DF1CA2F9F000ACEEDA /* LRRestyClient+PUT.m in Sources */,
 				2388775C1D8E9BE900BCBB5E /* ArticleTableViewCell.m in Sources */,
 				235762AF1D09C6D300AD2073 /* MenuSlideBarTableViewCell.m in Sources */,
 				230534D61CA2F9F000ACEEDA /* NSObject+Tap.m in Sources */,
 				230534EB1CA2F9F000ACEEDA /* mo_audio.mm in Sources */,
+				23AA711C1D8EE26600E41DCB /* CDUserInfo+CoreDataClass.m in Sources */,
+				23AA712B1D8EE26600E41DCB /* CDUser+CoreDataProperties.m in Sources */,
 				230534EA1CA2F9F000ACEEDA /* LRURLRequestOperation.m in Sources */,
 				23B85A361C85E32F00144193 /* HinosViewController.m in Sources */,
+				23AA711E1D8EE26600E41DCB /* CDArticle+CoreDataClass.m in Sources */,
 				230534E61CA2F9F000ACEEDA /* LRRestyRequestPayload.m in Sources */,
 				230534D31CA2F9F000ACEEDA /* NSDictionary+QueryString.m in Sources */,
+				23AA711D1D8EE26600E41DCB /* CDUserInfo+CoreDataProperties.m in Sources */,
 				23289D4F1D05C8D500235F49 /* ECSlidingSegue.m in Sources */,
 				23289D5E1D05D55700235F49 /* MEMenuViewController.m in Sources */,
 				230534E81CA2F9F000ACEEDA /* LRRestyResponse.m in Sources */,
 				230534851CA2F9A000ACEEDA /* BaseApi.m in Sources */,
+				23AA71251D8EE26600E41DCB /* CDSong+CoreDataProperties.m in Sources */,
 				230534D51CA2F9F000ACEEDA /* NSObject+SynchronousProxy.m in Sources */,
 				230534D71CA2F9F000ACEEDA /* NSRunLoop+Additions.m in Sources */,
 				230534DA1CA2F9F000ACEEDA /* UIImage+sample.m in Sources */,
@@ -1216,12 +1300,12 @@
 				23B859DE1C85D9D500144193 /* AppDelegate.m in Sources */,
 				230534D11CA2F9F000ACEEDA /* NSData+Base64.m in Sources */,
 				230534DC1CA2F9F000ACEEDA /* LRRestyClient+DELETE.m in Sources */,
+				23AA71261D8EE26600E41DCB /* CDNotification+CoreDataClass.m in Sources */,
 				23B859DB1C85D9D500144193 /* main.m in Sources */,
 				23289D4C1D05C8D500235F49 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				23B85A371C85E32F00144193 /* HinosDetailViewController.m in Sources */,
 				23289D511D05C8D500235F49 /* UIViewController+ECSlidingViewController.m in Sources */,
 				230534E71CA2F9F000ACEEDA /* LRRestyResource.m in Sources */,
-				232D55A51C871CC9002798F4 /* CDSong.m in Sources */,
 				23B85A381C85E32F00144193 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

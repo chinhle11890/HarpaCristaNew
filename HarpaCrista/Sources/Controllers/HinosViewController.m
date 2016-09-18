@@ -7,9 +7,9 @@
 //
 
 #import "HinosViewController.h"
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
 #import "HinosDetailViewController.h"
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
 #import "BaseApi.h"
 #import "Reachability.h"
 #import "ECSlidingViewController.h"

@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-6x-f8J" userLabel="SearchView">
@@ -133,6 +133,7 @@
                             <constraint firstItem="7oC-Aj-vwv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wIA-89-Fhm"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Harpa Crista com Acordes" id="0vG-Xt-qKF">
                         <barButtonItem key="leftBarButtonItem" image="icn_menu.png" id="40Y-Aj-RRt">
                             <connections>
@@ -1509,14 +1510,14 @@
                         <viewControllerLayoutGuide type="bottom" id="WXp-Es-P7Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HgL-Uh-Pbm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6pD-dR-OWv">
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleTableViewCell" rowHeight="250" id="vGO-27-ckd" customClass="ArticleTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="365" height="250"/>
+                                        <rect key="frame" x="0.0" y="28" width="365" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vGO-27-ckd" id="hm3-ps-GRR">
                                             <frame key="frameInset" width="365" height="250"/>
@@ -1552,7 +1553,7 @@
                                                         <constraint firstItem="ABu-3x-vNa" firstAttribute="trailing" secondItem="N8f-FH-Xl5" secondAttribute="trailing" id="AO2-eM-vWh"/>
                                                         <constraint firstItem="ABu-3x-vNa" firstAttribute="leading" secondItem="N8f-FH-Xl5" secondAttribute="leading" id="N69-NR-cTe"/>
                                                         <constraint firstAttribute="trailing" secondItem="Z9N-sG-wG6" secondAttribute="trailing" constant="5" id="REt-jf-PwX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ABu-3x-vNa" secondAttribute="bottom" constant="2" id="YTz-sL-3NF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ABu-3x-vNa" secondAttribute="bottom" constant="5" id="YTz-sL-3NF"/>
                                                         <constraint firstItem="Z9N-sG-wG6" firstAttribute="top" secondItem="XUi-Wn-ObY" secondAttribute="top" constant="5" id="lNv-41-1h5"/>
                                                         <constraint firstItem="N8f-FH-Xl5" firstAttribute="top" secondItem="Z9N-sG-wG6" secondAttribute="bottom" id="omf-4L-Nwh"/>
                                                         <constraint firstItem="ABu-3x-vNa" firstAttribute="top" secondItem="N8f-FH-Xl5" secondAttribute="bottom" id="w9Y-dQ-h7C"/>
@@ -1564,7 +1565,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="XUi-Wn-ObY" secondAttribute="trailing" id="1dv-S7-ept"/>
                                                 <constraint firstItem="XUi-Wn-ObY" firstAttribute="top" secondItem="hm3-ps-GRR" secondAttribute="top" id="8au-LE-5Cr"/>
                                                 <constraint firstItem="XUi-Wn-ObY" firstAttribute="leading" secondItem="hm3-ps-GRR" secondAttribute="leading" id="dag-JO-hy9"/>
-                                                <constraint firstAttribute="bottom" secondItem="XUi-Wn-ObY" secondAttribute="bottom" id="mjQ-s8-OVe"/>
+                                                <constraint firstAttribute="bottom" secondItem="XUi-Wn-ObY" secondAttribute="bottom" constant="5" id="mjQ-s8-OVe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
@@ -1580,15 +1581,25 @@
                                     <outlet property="delegate" destination="l8J-vq-R0J" id="RDf-nz-08w"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0J-nc-H70" customClass="GADBannerView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yzw-Zr-Jew"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6pD-dR-OWv" firstAttribute="leading" secondItem="HgL-Uh-Pbm" secondAttribute="leading" constant="5" id="2uU-8I-H3o"/>
-                            <constraint firstItem="WXp-Es-P7Y" firstAttribute="top" secondItem="6pD-dR-OWv" secondAttribute="bottom" constant="5" id="ZOA-2z-1RX"/>
-                            <constraint firstItem="6pD-dR-OWv" firstAttribute="top" secondItem="tfD-eU-ZKT" secondAttribute="bottom" constant="5" id="chi-c1-H0X"/>
+                            <constraint firstItem="WXp-Es-P7Y" firstAttribute="top" secondItem="M0J-nc-H70" secondAttribute="bottom" id="KqI-4S-5MS"/>
+                            <constraint firstItem="6pD-dR-OWv" firstAttribute="top" secondItem="tfD-eU-ZKT" secondAttribute="bottom" constant="5" id="ODV-sG-eCw"/>
+                            <constraint firstAttribute="trailing" secondItem="M0J-nc-H70" secondAttribute="trailing" id="UEu-Yv-l7g"/>
+                            <constraint firstItem="M0J-nc-H70" firstAttribute="top" secondItem="6pD-dR-OWv" secondAttribute="bottom" id="kTu-z9-Y90"/>
+                            <constraint firstItem="M0J-nc-H70" firstAttribute="leading" secondItem="HgL-Uh-Pbm" secondAttribute="leading" id="qqK-77-DLY"/>
                             <constraint firstAttribute="trailing" secondItem="6pD-dR-OWv" secondAttribute="trailing" constant="5" id="xV8-fi-p1b"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Harpa Cristã" id="0xS-T0-2GJ">
                         <barButtonItem key="leftBarButtonItem" image="icn_menu.png" id="p8B-59-XzD">
                             <connections>
@@ -1597,6 +1608,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="_bannerView" destination="M0J-nc-H70" id="Syk-XJ-dWP"/>
+                        <outlet property="_heightBannerConstraint" destination="yzw-Zr-Jew" id="LvR-UR-Xur"/>
                         <outlet property="_tableView" destination="6pD-dR-OWv" id="MJU-JY-HCd"/>
                     </connections>
                 </viewController>

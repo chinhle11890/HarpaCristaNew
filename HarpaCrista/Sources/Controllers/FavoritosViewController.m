@@ -7,7 +7,7 @@
 //
 
 #import "FavoritosViewController.h"
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
 #import "HinosDetailViewController.h"
 #import "Reachability.h"
 #import "UIViewController+ECSlidingViewController.h"

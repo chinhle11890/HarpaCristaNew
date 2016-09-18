@@ -2,24 +2,34 @@
 //  CDSong+CoreDataProperties.h
 //  HarpaCrista
 //
-//  Created by Chinh Le on 7/2/16.
+//  Created by Chinh Le on 9/18/16.
 //  Copyright © 2016 Chinh Le. All rights reserved.
 //
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
-//
 
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CDSong (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *cdChord;
-@property (nullable, nonatomic, retain) NSNumber *cdIsFavorite;
-@property (nullable, nonatomic, retain) NSNumber *cdSongID;
-@property (nullable, nonatomic, retain) NSString *cdTitle;
-@property (nullable, nonatomic, retain) NSString *cdSongLink;
++ (NSFetchRequest<CDSong *> *)fetchRequest;
+
+@property (nullable, nonatomic, copy) NSString *cdChord;
+@property (nullable, nonatomic, copy) NSNumber *cdIsFavorite;
+@property (nullable, nonatomic, copy) NSNumber *cdSongID;
+@property (nullable, nonatomic, copy) NSString *cdSongLink;
+@property (nullable, nonatomic, copy) NSString *cdTitle;
+@property (nullable, nonatomic, retain) NSSet<CDSongInfo *> *songInfo;
+
+@end
+
+@interface CDSong (CoreDataGeneratedAccessors)
+
+- (void)addSongInfoObject:(CDSongInfo *)value;
+- (void)removeSongInfoObject:(CDSongInfo *)value;
+- (void)addSongInfo:(NSSet<CDSongInfo *> *)values;
+- (void)removeSongInfo:(NSSet<CDSongInfo *> *)values;
 
 @end
 

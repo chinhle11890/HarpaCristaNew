@@ -8,7 +8,7 @@
 
 #import "TutorialViewController.h"
 #import "PageItemViewController.h"
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
 #import "BaseApi.h"
 #import "ECSlidingViewController.h"
 #import <AVFoundation/AVFoundation.h>

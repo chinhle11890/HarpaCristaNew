@@ -10,9 +10,14 @@
 #import "ArticleTableViewCell.h"
 #import "ECSlidingViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "Reachability.h"
+@import GoogleMobileAds;
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource> {
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate> {
     __weak IBOutlet UITableView *_tableView;
+    
+    __weak IBOutlet GADBannerView *_bannerView;
+    __weak IBOutlet NSLayoutConstraint *_heightBannerConstraint;
     
     NSArray *_arrayArticles;
 }
@@ -26,11 +31,36 @@
     
     // Set the width of side menu
     [self setSlideBarViewController];
+    
+    //Load Ads if the network is connectable
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
+        //Set height of banner to 0
+        _heightBannerConstraint.constant = 0.0f;
+    } else {
+        [self loadGoogleAds];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - GoogleAds - GADBannerViewDelegate
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    _bannerView.hidden = NO;
+}
+
+- (void)loadGoogleAds {
+    _bannerView.hidden = YES;
+    //Google AdMob
+    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    _bannerView.adUnitID = @"ca-app-pub-5569929039117299/9402430169";
+    _bannerView.adSize = kGADAdSizeSmartBannerPortrait;
+    _bannerView.rootViewController = self;
+    _bannerView.delegate = self;
+    
+    [_bannerView loadRequest:[GADRequest request]];
 }
 
 #pragma mark - ECSlidingViewControllerAnchoredGesture

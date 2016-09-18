@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
 
 @interface HinosDetailViewController : UIViewController
 

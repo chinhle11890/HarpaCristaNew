@@ -1,12 +1,13 @@
 //
-//  CDSong.m
+//  CDSong+CoreDataClass.m
 //  HarpaCrista
 //
-//  Created by Chinh Le on 3/2/16.
+//  Created by Chinh Le on 9/18/16.
 //  Copyright © 2016 Chinh Le. All rights reserved.
 //
 
-#import "CDSong.h"
+#import "CDSong+CoreDataClass.h"
+#import "CDSongInfo+CoreDataClass.h"
 #import "AppDelegate.h"
 
 @implementation CDSong
