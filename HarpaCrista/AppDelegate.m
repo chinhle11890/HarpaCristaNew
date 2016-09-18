@@ -15,6 +15,7 @@
 #import "GAIDictionaryBuilder.h"
 //#import "Google/Headers/GGLCore/Public/GGLContext.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "UserInfo.h"
 
 #define PUSH_NOTIFICATION_APP_ID @"a97ee6a1-abf5-4206-b311-09bb350b1e85"
 
@@ -56,17 +57,22 @@
         [alertView show];
     }];
     
+    [[UserInfo shareInstance] shouldPerformActionWithLogin:^{
+        [self loginWithCompletion:nil];
+    } noLogin:^{
+        [self logoutWithCompletion:nil];
+    }];
     // create a standardUserDefaults variable
     //    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     //    NSNumber *isLoadTutorial = [standardUserDefaults objectForKey:keyLoadTutorial];
     //
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //    if ([isLoadTutorial boolValue]) {
-    //        ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
+//            ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
     //        self.window.rootViewController = slidingViewController;
     //    } else {
-    TutorialViewController *tutorialViewController = [storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
-    self.window.rootViewController = tutorialViewController;
+//    TutorialViewController *tutorialViewController = [storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
+//    self.window.rootViewController = tutorialViewController;
     //    }
     //
     //    // synchronize the settings
@@ -212,6 +218,61 @@
             abort();
         }
     }
+}
+
+#pragma mark - logout
+- (void)logout:(dispatch_block_t)completion {
+    [[GIDSignIn sharedInstance] signOut];
+    if (completion) {
+        completion();
+    }
+}
+
+- (void)logoutWithCompletion:(dispatch_block_t)completion_t {
+    UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ECSlidingViewController *vc    = [storyboard instantiateViewControllerWithIdentifier: @"tutorialViewController"];
+    if (vc) {
+        [[UserInfo shareInstance] clearInfo];
+        [self setRootViewController:vc withTransition:UIViewAnimationOptionLayoutSubviews completion:^(BOOL finished) {
+            if (completion_t) {
+                completion_t();
+            }
+        }];
+//        [self.window setRootViewController:vc];
+    }
+}
+
+- (void)loginWithCompletion:(dispatch_block_t)completion_t {
+    UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ECSlidingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
+    if (vc) {
+        [self setRootViewController:vc withTransition:UIViewAnimationOptionCurveEaseInOut completion:^(BOOL finished) {
+            if (completion_t) {
+                completion_t();
+            }
+        }];
+//        [self.window setRootViewController:vc];
+    }
+    
+    if (completion_t) {
+        completion_t();
+    }
+}
+
+- (void)setRootViewController:(UIViewController *)viewController
+               withTransition:(UIViewAnimationOptions)transition
+                   completion:(void (^)(BOOL finished))completion {
+    UIViewController *oldViewController = self.window.rootViewController;
+    [UIView transitionFromView:oldViewController.view
+                        toView:viewController.view
+                      duration:0.25
+                       options:(UIViewAnimationOptions)(transition|UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionLayoutSubviews)
+                    completion:^(BOOL finished) {
+                        self.window.rootViewController = viewController;
+                        if (completion) {
+                            completion(finished);
+                        }
+                    }];
 }
 
 @end

@@ -185,6 +185,7 @@
 		BF10221B1D8D0662007CAAA2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */; };
 		BF10221C1D8D0662007CAAA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */; };
 		BF1022201D8D09C7007CAAA2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF10221F1D8D09C7007CAAA2 /* Bolts.framework */; };
+		BFC7053B1D8E99A9005C64AC /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC7053A1D8E99A9005C64AC /* UserInfo.m */; };
 		C8E1E4FC1CB2485A002808E6 /* icn_hinos.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */; };
 		C8E1E5021CB2485A002808E6 /* icn_mais.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E1E4F01CB2485A002808E6 /* icn_mais.png */; };
 /* End PBXBuildFile section */
@@ -442,6 +443,8 @@
 		BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		BF10221F1D8D09C7007CAAA2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BFC705391D8E99A9005C64AC /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		BFC7053A1D8E99A9005C64AC /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_hinos.png; path = Resources/Images/icn_hinos.png; sourceTree = "<group>"; };
 		C8E1E4F01CB2485A002808E6 /* icn_mais.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_mais.png; path = Resources/Images/icn_mais.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -879,6 +882,8 @@
 		A6DBCF431C8D9AD400FA6343 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BFC705391D8E99A9005C64AC /* UserInfo.h */,
+				BFC7053A1D8E99A9005C64AC /* UserInfo.m */,
 				230534ED1CA2FA6C00ACEEDA /* Constants.h */,
 				230534EE1CA2FA6C00ACEEDA /* Constants.m */,
 			);
@@ -1185,6 +1190,7 @@
 				230534861CA2F9A000ACEEDA /* JSONObject.m in Sources */,
 				23D816A71CECB3EE00EBB205 /* Reachability.m in Sources */,
 				2305347B1CA2F88D00ACEEDA /* PageItemViewController.m in Sources */,
+				BFC7053B1D8E99A9005C64AC /* UserInfo.m in Sources */,
 				230534CE1CA2F9F000ACEEDA /* FFTHelper.mm in Sources */,
 				230534D81CA2F9F000ACEEDA /* NSString+QueryString.m in Sources */,
 				230534DF1CA2F9F000ACEEDA /* LRRestyClient+PUT.m in Sources */,
