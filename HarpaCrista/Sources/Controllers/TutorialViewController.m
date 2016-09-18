@@ -15,8 +15,9 @@
 #import <AVKit/AVKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
+#import <Google/SignIn.h>
 
-@interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate> {
+@interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate, GIDSignInDelegate, GIDSignInUIDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
     NSArray *_contentTitle;
     NSArray *_contentDescription;
@@ -31,6 +32,8 @@
     __weak IBOutlet UITextField *_emailTextField;
     __weak IBOutlet UIButton *_skipButton;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    GIDSignInButton *_googleSignInButton;
+    
 }
 @end
 
@@ -58,7 +61,7 @@
                              action:@selector(dismissKeyboard)];
     
     //Set the color of placeholder for text field
-    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Digite seu e-mail" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    //    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Digite seu e-mail" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor]}];
     
     [self createPageViewController];
     
@@ -69,6 +72,16 @@
         // Init data
         [self initData];
     }
+    [self configureGoogleSignIn];
+}
+
+- (void)configureGoogleSignIn {
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    [GIDSignIn sharedInstance].delegate = self;
+    
+    _googleSignInButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    _googleSignInButton.center = self.view.center;
+    _googleSignInButton.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -137,9 +150,9 @@
                       @"Adore",
                       @"Melhore"];
     _contentDescription = @[@"Vamos adorar a Deus melhor, juntos.",
-                      @"Escute todos os hinos da harpa, use nosso metrônomo e afinador enquanto vocé toca.",
-                      @"Use o app offline. Pra tocar na igreja, ensaiar ou fazer seu devocional.",
-                      @"Veja recursos, artigos, livros digitais e muito mais em nosso site harpacca.com."];
+                            @"Escute todos os hinos da harpa, use nosso metrônomo e afinador enquanto vocé toca.",
+                            @"Use o app offline. Pra tocar na igreja, ensaiar ou fazer seu devocional.",
+                            @"Veja recursos, artigos, livros digitais e muito mais em nosso site harpacca.com."];
     
     UIPageViewController *pageController = [self.storyboard instantiateViewControllerWithIdentifier: @"PageController"];
     pageController.dataSource = self;
@@ -336,9 +349,9 @@
                                 if (error) {
                                     NSLog(@"error login facebook: %@", error);
                                 } else if (result.isCancelled) {
-                                    NSLog(@"result %@", result);
+                                    NSLog(@"login facebook cancelled: %d", result.isCancelled);
+                                    return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
-                                    NSLog(@"Im here");
                                     [self getUserData];
                                 }
                             }];
@@ -359,6 +372,25 @@
         }
         NSLog(@"result: %@", result);
     }];
+}
+
+#pragma mark - google signin
+- (IBAction)didClickGoogleSignIn:(id)sender {
+    [_googleSignInButton sendActionsForControlEvents:UIControlEventAllEvents];
+}
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    if (error) {
+        NSLog(@"error when sign in google: %@", error);
+        return;
+    }
+    NSString *userId = user.userID;                  // For client-side use only!
+    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    NSString *fullName = user.profile.name;
+    NSString *givenName = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+    NSString *email = user.profile.email;
+    // User later
 }
 
 @end

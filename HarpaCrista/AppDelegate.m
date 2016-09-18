@@ -30,6 +30,7 @@
     // support facebook login
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
     // Setup Google Analytics
     [self startGoogleAnalyticsTracking];
     
@@ -56,20 +57,20 @@
     }];
     
     // create a standardUserDefaults variable
-//    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-//    NSNumber *isLoadTutorial = [standardUserDefaults objectForKey:keyLoadTutorial];
-//    
+    //    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    //    NSNumber *isLoadTutorial = [standardUserDefaults objectForKey:keyLoadTutorial];
+    //
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    if ([isLoadTutorial boolValue]) {
-//        ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
-//        self.window.rootViewController = slidingViewController;
-//    } else {
-        TutorialViewController *tutorialViewController = [storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
-        self.window.rootViewController = tutorialViewController;
-//    }
-//    
-//    // synchronize the settings
-//    [standardUserDefaults synchronize];
+    //    if ([isLoadTutorial boolValue]) {
+    //        ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
+    //        self.window.rootViewController = slidingViewController;
+    //    } else {
+    TutorialViewController *tutorialViewController = [storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
+    self.window.rootViewController = tutorialViewController;
+    //    }
+    //
+    //    // synchronize the settings
+    //    [standardUserDefaults synchronize];
     
     return YES;
 }
@@ -103,10 +104,18 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+    if ([url.absoluteString containsString:@"fb"]) {
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation];
+        
+    } else if([url.absoluteString containsString:@"google"]) {
+        return [[GIDSignIn sharedInstance] handleURL:url
+                                   sourceApplication:sourceApplication
+                                          annotation:annotation];
+    }
+    return true;
 }
 
 #define mark - Google Analytics
@@ -117,9 +126,9 @@
     [[GGLContext sharedInstance] configureWithError:&configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
-//    GAI *gai = [GAI sharedInstance];
-//    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-//    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+    //    GAI *gai = [GAI sharedInstance];
+    //    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    //    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
 }
 
 #pragma mark - Core Data stack
