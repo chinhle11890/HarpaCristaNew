@@ -59,8 +59,6 @@
 		230534EB1CA2F9F000ACEEDA /* mo_audio.mm in Sources */ = {isa = PBXBuildFile; fileRef = 230534CA1CA2F9F000ACEEDA /* mo_audio.mm */; };
 		230534EC1CA2F9F000ACEEDA /* mo_gfx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 230534CD1CA2F9F000ACEEDA /* mo_gfx.mm */; };
 		230534EF1CA2FA6C00ACEEDA /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 230534EE1CA2FA6C00ACEEDA /* Constants.m */; };
-		2305EBE61D243EC9001FC80B /* libGGLAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2305EBE41D243EC9001FC80B /* libGGLAnalytics.a */; };
-		2305EBE71D243EC9001FC80B /* libGGLCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2305EBE51D243EC9001FC80B /* libGGLCore.a */; };
 		2305EBE91D243F7B001FC80B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2305EBE81D243F7B001FC80B /* GoogleService-Info.plist */; };
 		231680D41D1C36B10058C54F /* icn_change_tone.png in Resources */ = {isa = PBXBuildFile; fileRef = 231680D21D1C36B10058C54F /* icn_change_tone.png */; };
 		231680D51D1C36B10058C54F /* icn_fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 231680D31D1C36B10058C54F /* icn_fullscreen.png */; };
@@ -74,7 +72,6 @@
 		23289D511D05C8D500235F49 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23289D4B1D05C8D500235F49 /* UIViewController+ECSlidingViewController.m */; };
 		23289D5B1D05CCB700235F49 /* SlideMenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23289D5A1D05CCB700235F49 /* SlideMenuItems.plist */; };
 		23289D5E1D05D55700235F49 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23289D5D1D05D55700235F49 /* MEMenuViewController.m */; };
-		2328FAB91CC1273F00924631 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FAAD1CC1273F00924631 /* libGoogleAnalyticsServices.a */; };
 		2328FABB1CC1279B00924631 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABA1CC1279B00924631 /* CoreData.framework */; };
 		2328FABD1CC129B500924631 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABC1CC129B500924631 /* libsqlite3.tbd */; };
 		2328FABF1CC129BF00924631 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328FABE1CC129BF00924631 /* libz.tbd */; };
@@ -170,6 +167,7 @@
 		23D816AF1CECCAA600EBB205 /* icn_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D816AB1CECCAA500EBB205 /* icn_play@2x.png */; };
 		23D82C4B1C9D5AF1004AC250 /* bass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23D82C491C9D5AF1004AC250 /* bass.mp3 */; };
 		23F573CB1D0F065400D56D3A /* Introduction.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 23F573CA1D0F065400D56D3A /* Introduction.mp4 */; };
+		A3512FC01D79E8B37385F83C /* Pods_HarpaCrista.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE9987F18433DA6AB2DE0A2 /* Pods_HarpaCrista.framework */; };
 		A601EA571C8AB03100E0AE3F /* IntroScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A601EA561C8AB03100E0AE3F /* IntroScreen.storyboard */; };
 		A689C0A31C931A72003C5AAC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A689C0A21C931A72003C5AAC /* AVFoundation.framework */; };
 		A689C0A51C931A7C003C5AAC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A689C0A41C931A7C003C5AAC /* iAd.framework */; };
@@ -289,14 +287,6 @@
 		230534CD1CA2F9F000ACEEDA /* mo_gfx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mo_gfx.mm; path = Sources/Libraries/mo_gfx.mm; sourceTree = "<group>"; };
 		230534ED1CA2FA6C00ACEEDA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Sources/Common/Constants.h; sourceTree = "<group>"; };
 		230534EE1CA2FA6C00ACEEDA /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Sources/Common/Constants.m; sourceTree = "<group>"; };
-		2305EBDB1D243EC9001FC80B /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
-		2305EBDC1D243EC9001FC80B /* GGLContext+Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GGLContext+Analytics.h"; sourceTree = "<group>"; };
-		2305EBDF1D243EC9001FC80B /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		2305EBE01D243EC9001FC80B /* GGLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLConfiguration.h; sourceTree = "<group>"; };
-		2305EBE11D243EC9001FC80B /* GGLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLContext.h; sourceTree = "<group>"; };
-		2305EBE21D243EC9001FC80B /* GGLErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLErrorCode.h; sourceTree = "<group>"; };
-		2305EBE41D243EC9001FC80B /* libGGLAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLAnalytics.a; sourceTree = "<group>"; };
-		2305EBE51D243EC9001FC80B /* libGGLCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLCore.a; sourceTree = "<group>"; };
 		2305EBE81D243F7B001FC80B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		231680D21D1C36B10058C54F /* icn_change_tone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_change_tone.png; path = Resources/Images/icn_change_tone.png; sourceTree = "<group>"; };
 		231680D31D1C36B10058C54F /* icn_fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_fullscreen.png; path = Resources/Images/icn_fullscreen.png; sourceTree = "<group>"; };
@@ -319,17 +309,6 @@
 		23289D5C1D05D55700235F49 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEMenuViewController.h; path = Sources/Controllers/MEMenuViewController.h; sourceTree = "<group>"; };
 		23289D5D1D05D55700235F49 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEMenuViewController.m; path = Sources/Controllers/MEMenuViewController.m; sourceTree = "<group>"; };
 		2328DDD71D8D547600C6E534 /* HarpaCrista 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "HarpaCrista 3.xcdatamodel"; sourceTree = "<group>"; };
-		2328FAAD1CC1273F00924631 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		2328FAAF1CC1273F00924631 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		2328FAB01CC1273F00924631 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		2328FAB11CC1273F00924631 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
-		2328FAB21CC1273F00924631 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		2328FAB31CC1273F00924631 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		2328FAB41CC1273F00924631 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		2328FAB51CC1273F00924631 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		2328FAB61CC1273F00924631 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		2328FAB71CC1273F00924631 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		2328FAB81CC1273F00924631 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		2328FABA1CC1279B00924631 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2328FABC1CC129B500924631 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2328FABE1CC129BF00924631 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -438,6 +417,8 @@
 		23D82C491C9D5AF1004AC250 /* bass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bass.mp3; path = Resources/Files/bass.mp3; sourceTree = "<group>"; };
 		23D82C4A1C9D5AF1004AC250 /* snare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = snare.mp3; path = Resources/Files/snare.mp3; sourceTree = "<group>"; };
 		23F573CA1D0F065400D56D3A /* Introduction.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Introduction.mp4; path = Resources/Files/Introduction.mp4; sourceTree = "<group>"; };
+		2CE9987F18433DA6AB2DE0A2 /* Pods_HarpaCrista.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarpaCrista.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8425343586093ACA22A4A7A6 /* Pods-HarpaCrista.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarpaCrista.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarpaCrista/Pods-HarpaCrista.release.xcconfig"; sourceTree = "<group>"; };
 		A601EA561C8AB03100E0AE3F /* IntroScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntroScreen.storyboard; sourceTree = "<group>"; };
 		A689C0A21C931A72003C5AAC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A689C0A41C931A7C003C5AAC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -450,6 +431,7 @@
 		A6F789791C9AFC5D00B1618E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A6F7897B1C9AFC7200B1618E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A6F789841C9AFD5700B1618E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A9001BE63F81E9BD0D566AB6 /* Pods-HarpaCrista.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarpaCrista.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarpaCrista/Pods-HarpaCrista.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1022171D8D0662007CAAA2 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -472,8 +454,6 @@
 				236BC1F81CEB6FDE00DA7371 /* MediaPlayer.framework in Frameworks */,
 				236BC1F51CEB6FCD00DA7371 /* EventKit.framework in Frameworks */,
 				236BC1F61CEB6FCD00DA7371 /* EventKitUI.framework in Frameworks */,
-				2305EBE61D243EC9001FC80B /* libGGLAnalytics.a in Frameworks */,
-				2305EBE71D243EC9001FC80B /* libGGLCore.a in Frameworks */,
 				236BC1F21CEB6F7C00DA7371 /* CoreTelephony.framework in Frameworks */,
 				A6E4F08D1C945E97005BA03B /* AudioToolbox.framework in Frameworks */,
 				236BC1F01CEB6F4E00DA7371 /* AdSupport.framework in Frameworks */,
@@ -482,7 +462,6 @@
 				2328FABB1CC1279B00924631 /* CoreData.framework in Frameworks */,
 				A6F789851C9AFD5700B1618E /* OpenGLES.framework in Frameworks */,
 				A6F7897C1C9AFC7200B1618E /* Accelerate.framework in Frameworks */,
-				2328FAB91CC1273F00924631 /* libGoogleAnalyticsServices.a in Frameworks */,
 				A6E4F0891C945E69005BA03B /* MobileCoreServices.framework in Frameworks */,
 				233D72F31C93F25A0015A0E6 /* SystemConfiguration.framework in Frameworks */,
 				A689C0AB1C931A9B003C5AAC /* CoreGraphics.framework in Frameworks */,
@@ -496,6 +475,7 @@
 				BF1022201D8D09C7007CAAA2 /* Bolts.framework in Frameworks */,
 				BF10221B1D8D0662007CAAA2 /* FBSDKLoginKit.framework in Frameworks */,
 				233D72F11C93EDF70015A0E6 /* OneSignal.framework in Frameworks */,
+				A3512FC01D79E8B37385F83C /* Pods_HarpaCrista.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,69 +560,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		2305EBD71D243EC9001FC80B /* Google */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBD81D243EC9001FC80B /* Headers */,
-				2305EBE31D243EC9001FC80B /* Libraries */,
-			);
-			path = Google;
-			sourceTree = "<group>";
-		};
-		2305EBD81D243EC9001FC80B /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBD91D243EC9001FC80B /* GGLAnalytics */,
-				2305EBDD1D243EC9001FC80B /* GGLCore */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		2305EBD91D243EC9001FC80B /* GGLAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBDA1D243EC9001FC80B /* Public */,
-			);
-			path = GGLAnalytics;
-			sourceTree = "<group>";
-		};
-		2305EBDA1D243EC9001FC80B /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBDB1D243EC9001FC80B /* Analytics.h */,
-				2305EBDC1D243EC9001FC80B /* GGLContext+Analytics.h */,
-			);
-			path = Public;
-			sourceTree = "<group>";
-		};
-		2305EBDD1D243EC9001FC80B /* GGLCore */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBDE1D243EC9001FC80B /* Public */,
-			);
-			path = GGLCore;
-			sourceTree = "<group>";
-		};
-		2305EBDE1D243EC9001FC80B /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBDF1D243EC9001FC80B /* Core.h */,
-				2305EBE01D243EC9001FC80B /* GGLConfiguration.h */,
-				2305EBE11D243EC9001FC80B /* GGLContext.h */,
-				2305EBE21D243EC9001FC80B /* GGLErrorCode.h */,
-			);
-			path = Public;
-			sourceTree = "<group>";
-		};
-		2305EBE31D243EC9001FC80B /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				2305EBE41D243EC9001FC80B /* libGGLAnalytics.a */,
-				2305EBE51D243EC9001FC80B /* libGGLCore.a */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
 		23289D3E1D05C8D500235F49 /* ECSlidingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,37 +580,13 @@
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
-		2328FAAC1CC1273F00924631 /* GoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				2328FAAD1CC1273F00924631 /* libGoogleAnalyticsServices.a */,
-				2328FAAE1CC1273F00924631 /* Library */,
-			);
-			path = GoogleAnalytics;
-			sourceTree = "<group>";
-		};
-		2328FAAE1CC1273F00924631 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				2328FAAF1CC1273F00924631 /* GAI.h */,
-				2328FAB01CC1273F00924631 /* GAIDictionaryBuilder.h */,
-				2328FAB11CC1273F00924631 /* GAIEcommerceFields.h */,
-				2328FAB21CC1273F00924631 /* GAIEcommerceProduct.h */,
-				2328FAB31CC1273F00924631 /* GAIEcommerceProductAction.h */,
-				2328FAB41CC1273F00924631 /* GAIEcommercePromotion.h */,
-				2328FAB51CC1273F00924631 /* GAIFields.h */,
-				2328FAB61CC1273F00924631 /* GAILogger.h */,
-				2328FAB71CC1273F00924631 /* GAITrackedViewController.h */,
-				2328FAB81CC1273F00924631 /* GAITracker.h */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		23B859CD1C85D9D500144193 = {
 			isa = PBXGroup;
 			children = (
 				23B859D81C85D9D500144193 /* HarpaCrista */,
 				23B859D71C85D9D500144193 /* Products */,
+				33DF73257D0D03B9D98D99C8 /* Pods */,
+				709FB53FA4C6622602A14024 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -709,8 +602,6 @@
 			isa = PBXGroup;
 			children = (
 				2305EBE81D243F7B001FC80B /* GoogleService-Info.plist */,
-				2305EBD71D243EC9001FC80B /* Google */,
-				2328FAAC1CC1273F00924631 /* GoogleAnalytics */,
 				A6E4F0721C945D5B005BA03B /* Utilities */,
 				A6E3F3BB1C909E6B004BCEA6 /* Libraries */,
 				23B859F41C85DA6000144193 /* Resources */,
@@ -924,6 +815,23 @@
 			path = Sources/Libraries/Reachability;
 			sourceTree = "<group>";
 		};
+		33DF73257D0D03B9D98D99C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9001BE63F81E9BD0D566AB6 /* Pods-HarpaCrista.debug.xcconfig */,
+				8425343586093ACA22A4A7A6 /* Pods-HarpaCrista.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		709FB53FA4C6622602A14024 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CE9987F18433DA6AB2DE0A2 /* Pods_HarpaCrista.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A689C0AC1C931AA3003C5AAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,9 +938,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23B859F01C85D9D500144193 /* Build configuration list for PBXNativeTarget "HarpaCrista" */;
 			buildPhases = (
+				288E04ABB0CA6216EB7D8DC8 /* 📦 Check Pods Manifest.lock */,
 				23B859D21C85D9D500144193 /* Sources */,
 				23B859D31C85D9D500144193 /* Frameworks */,
 				23B859D41C85D9D500144193 /* Resources */,
+				2A2FBE12F1357B6AAE1C68C6 /* 📦 Embed Pods Frameworks */,
+				4E967CC212497A9AE3F80703 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1181,6 +1092,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		288E04ABB0CA6216EB7D8DC8 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2A2FBE12F1357B6AAE1C68C6 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HarpaCrista/Pods-HarpaCrista-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E967CC212497A9AE3F80703 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HarpaCrista/Pods-HarpaCrista-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23B859D21C85D9D500144193 /* Sources */ = {
@@ -1361,6 +1320,7 @@
 		};
 		23B859F11C85D9D500144193 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9001BE63F81E9BD0D566AB6 /* Pods-HarpaCrista.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: jose viana (XHR5FJ9L49)";
@@ -1379,7 +1339,10 @@
 					"$(PROJECT_DIR)/HarpaCrista/GoogleAnalytics",
 					"$(PROJECT_DIR)/HarpaCrista/Google/Libraries",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = HarpaCrista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "eb7b417a-7cdc-4c42-a2c6-5a9cf72ff64e";
@@ -1389,6 +1352,7 @@
 		};
 		23B859F21C85D9D500144193 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8425343586093ACA22A4A7A6 /* Pods-HarpaCrista.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: jose viana (RYQFFB6SJD)";
@@ -1407,7 +1371,10 @@
 					"$(PROJECT_DIR)/HarpaCrista/GoogleAnalytics",
 					"$(PROJECT_DIR)/HarpaCrista/Google/Libraries",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = HarpaCrista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "eb7b417a-7cdc-4c42-a2c6-5a9cf72ff64e";

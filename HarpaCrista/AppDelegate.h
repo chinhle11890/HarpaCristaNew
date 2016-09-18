@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <OneSignal/OneSignal.h>
+#import <Google/SignIn.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
