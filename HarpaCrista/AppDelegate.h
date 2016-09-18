@@ -22,7 +22,9 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (void)logout:(dispatch_block_t)completion;
+- (void)logoutWithCompletion:(dispatch_block_t)completion_t;
+- (void)loginWithCompletion:(dispatch_block_t)completion_t;
 
 @end
 
