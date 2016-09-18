@@ -16,6 +16,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FBSDKLoginKit/FBSDKLoginKit.h"
 #import <Google/SignIn.h>
+#import "UserInfo.h"
+#import "AppDelegate.h"
 
 @interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate, GIDSignInDelegate, GIDSignInUIDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
@@ -259,13 +261,19 @@
 
 - (void)submitEmailAction:(NSString *)email {
     if ([self validateEmailWithString:email]) {
-        NSDictionary *object = @{@"email":_emailTextField.text};
+        NSDictionary *object = @{
+                                 @"email":email
+                                 };
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [[BaseApi client] postJSON:object headers:nil toUri:@"http://harpacca.com/mobile_submit_email.php" onSuccess:^(id data, id header) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             // Post email successfully. Continue!
             //
-            [self goToMainView];
+            NSLog(@"data = %@", data);
+            [UserInfo shareInstance].userInfo = object;
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [appDelegate loginWithCompletion:nil];
+//            [self goToMainView];
         }onError:^(NSInteger code, NSError *error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"Failed with error: %@", error.description);
@@ -277,7 +285,9 @@
 }
 
 - (IBAction)skipAction:(id)sender {
-    [self goToMainView];
+//    [self goToMainView];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate loginWithCompletion:nil];
 }
 
 - (void)goToMainView {

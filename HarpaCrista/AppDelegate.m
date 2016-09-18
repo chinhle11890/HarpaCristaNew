@@ -238,18 +238,20 @@
                 completion_t();
             }
         }];
+//        [self.window setRootViewController:vc];
     }
 }
 
 - (void)loginWithCompletion:(dispatch_block_t)completion_t {
     UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ECSlidingViewController *vc    = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
+    ECSlidingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
     if (vc) {
         [self setRootViewController:vc withTransition:UIViewAnimationOptionCurveEaseInOut completion:^(BOOL finished) {
             if (completion_t) {
                 completion_t();
             }
         }];
+//        [self.window setRootViewController:vc];
     }
     
     if (completion_t) {
