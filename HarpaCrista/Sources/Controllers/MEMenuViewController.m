@@ -25,6 +25,7 @@
 #import "MenuSlideBarTableViewCell.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "AppDelegate.h"
 
 #define kLogoutCellIndex 12
 #define kFooterHeight 44.0f
@@ -162,7 +163,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
         switch (indexPath.row) {
@@ -241,11 +241,26 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             default:
                 break;
         }
-    } else if (indexPath.section == 0) {
+    } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             // Handle Logout here
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Harpa Crista"
+                                                                           message:@"Are you sure want to logout?"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"OK"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                 [((AppDelegate *)[[UIApplication sharedApplication] delegate]) logoutWithCompletion:nil];
+                                                             }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:nil];
+            [alert addAction:cancelAction];
+            [alert addAction:OKAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate

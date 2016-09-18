@@ -60,7 +60,8 @@
     [[UserInfo shareInstance] shouldPerformActionWithLogin:^{
         [self loginWithCompletion:nil];
     } noLogin:^{
-        [self logoutWithCompletion:nil];
+//        [self logoutWithCompletion:nil];
+        [self loginWithCompletion:nil];
     }];
     // create a standardUserDefaults variable
     //    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
@@ -221,24 +222,17 @@
 }
 
 #pragma mark - logout
-- (void)logout:(dispatch_block_t)completion {
-    [[GIDSignIn sharedInstance] signOut];
-    if (completion) {
-        completion();
-    }
-}
-
 - (void)logoutWithCompletion:(dispatch_block_t)completion_t {
     UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ECSlidingViewController *vc    = [storyboard instantiateViewControllerWithIdentifier: @"tutorialViewController"];
     if (vc) {
         [[UserInfo shareInstance] clearInfo];
+        [[GIDSignIn sharedInstance] signOut];
         [self setRootViewController:vc withTransition:UIViewAnimationOptionLayoutSubviews completion:^(BOOL finished) {
             if (completion_t) {
                 completion_t();
             }
         }];
-//        [self.window setRootViewController:vc];
     }
 }
 
@@ -251,7 +245,6 @@
                 completion_t();
             }
         }];
-//        [self.window setRootViewController:vc];
     }
     
     if (completion_t) {
