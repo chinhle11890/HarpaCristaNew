@@ -60,9 +60,6 @@
                              initWithTarget:self
                              action:@selector(dismissKeyboard)];
     
-    //Set the color of placeholder for text field
-    //    _emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Digite seu e-mail" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor]}];
-    
     [self createPageViewController];
     
     //Create a standardUserDefaults variable
@@ -260,6 +257,25 @@
     }
 }
 
+- (void)submitEmailAction:(NSString *)email {
+    if ([self validateEmailWithString:email]) {
+        NSDictionary *object = @{@"email":_emailTextField.text};
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        [[BaseApi client] postJSON:object headers:nil toUri:@"http://harpacca.com/mobile_submit_email.php" onSuccess:^(id data, id header) {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            // Post email successfully. Continue!
+            //
+            [self goToMainView];
+        }onError:^(NSInteger code, NSError *error) {
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            NSLog(@"Failed with error: %@", error.description);
+        }];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Harpa Crista" message:@"This email is invalid. Please check it again!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
 - (IBAction)skipAction:(id)sender {
     [self goToMainView];
 }
@@ -371,6 +387,10 @@
             return;
         }
         NSLog(@"result: %@", result);
+        NSString *email = result[@"email"];
+        if (email) {
+            [self submitEmailAction:email];
+        }
     }];
 }
 
@@ -384,13 +404,14 @@
         NSLog(@"error when sign in google: %@", error);
         return;
     }
-    NSString *userId = user.userID;                  // For client-side use only!
-    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-    NSString *fullName = user.profile.name;
-    NSString *givenName = user.profile.givenName;
-    NSString *familyName = user.profile.familyName;
+//    NSString *userId = user.userID;                  // For client-side use only!
+//    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+//    NSString *fullName = user.profile.name;
+//    NSString *givenName = user.profile.givenName;
+//    NSString *familyName = user.profile.familyName;
     NSString *email = user.profile.email;
-    // User later
+    [self submitEmailAction:email];
+    
 }
 
 @end
