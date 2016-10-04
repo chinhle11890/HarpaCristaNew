@@ -20,6 +20,7 @@
 #import "AppDelegate.h"
 #import "CDUserInfo+CoreDataClass.h"
 #import "CDUser+CoreDataProperties.h"
+#import "AFNetworking/AFNetworking.h"
 
 @interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate, GIDSignInDelegate, GIDSignInUIDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
@@ -380,12 +381,12 @@
                                     NSLog(@"login facebook cancelled: %d", result.isCancelled);
                                     return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
-                                    [self getUserData];
+                                    [self getFBUserData];
                                 }
                             }];
 }
 
-- (void)getUserData {
+- (void)getFBUserData {
     if (![FBSDKAccessToken currentAccessToken]) {
         return;
     }
@@ -399,9 +400,11 @@
             return;
         }
         NSLog(@"result: %@", result);
-        NSString *email = result[@"email"];
-        if (email) {
-            [self submitEmailAction:email];
+        [self loginWithService:result withType: @"FACEBOOK"];
+//        NSString *email = result[@"email"];
+//        if (email) {
+//            [self login]
+//            [self submitEmailAction:email];
             
 //            AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 //            CDUserInfo *userInfo = [[CDUserInfo alloc] initWithContext:appdelegate.managedObjectContext];
@@ -413,7 +416,7 @@
 //            
 //            userInfo.user = nil;
 //            [appdelegate saveContext];
-        }
+//        }
     }];
 }
 
@@ -435,6 +438,37 @@
     NSString *email = user.profile.email;
     [self submitEmailAction:email];
     
+}
+
+- (void)loginWithService:(id)data withType:(NSString *)type {
+    if ([type isEqualToString:@"FACEBOOK"]) {
+        NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
+        NSString *fbId = data[@"id"];
+        NSString *name = data[@"name"];
+        NSString *email = data[@"email"];
+        NSString *picture = data[@"picture"][@"data"][@"url"];
+        NSString *firstName = data[@"first_name"];
+        NSString *lastName = data[@"last_name"];
+        NSDictionary *params = @{
+                                 @"social": type,
+                                 @"os": @"ios",
+                                 @"device_token": [NSUUID UUID].UUIDString,
+                                 @"facebook_token": [NSString stringWithFormat:@"%@?%@,%@,%@,%@,%@,%@,%@,%@", fbToken, fbId, name, email, picture, firstName, lastName,@"-", @"-"]
+                                 };
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [manager POST:@"http://harpacca.com/api/public/api/users/social"
+           parameters:params
+             progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                 NSLog(@"--> %@", responseObject);
+                 [UserInfo shareInstance].userInfo = @{
+                                                       @"email": email
+                                                       };
+                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                 [appDelegate loginWithCompletion:nil];
+             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                 NSLog(@"error: %@", error);
+             }];
+    }
 }
 
 @end

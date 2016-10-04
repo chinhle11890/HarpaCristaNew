@@ -6,4 +6,5 @@ use_frameworks!
 target 'HarpaCrista' do
   pod 'Google/SignIn'
   pod 'Google/Analytics'
+  pod 'AFNetworking'
 end

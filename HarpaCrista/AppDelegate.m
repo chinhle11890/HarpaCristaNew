@@ -60,25 +60,8 @@
     [[UserInfo shareInstance] shouldPerformActionWithLogin:^{
         [self loginWithCompletion:nil];
     } noLogin:^{
-//        [self logoutWithCompletion:nil];
-        [self loginWithCompletion:nil];
+        [self logoutWithCompletion:nil];
     }];
-    // create a standardUserDefaults variable
-    //    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    //    NSNumber *isLoadTutorial = [standardUserDefaults objectForKey:keyLoadTutorial];
-    //
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //    if ([isLoadTutorial boolValue]) {
-//            ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
-    //        self.window.rootViewController = slidingViewController;
-    //    } else {
-//    TutorialViewController *tutorialViewController = [storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
-//    self.window.rootViewController = tutorialViewController;
-    //    }
-    //
-    //    // synchronize the settings
-    //    [standardUserDefaults synchronize];
-    
     return YES;
 }
 

@@ -45,7 +45,7 @@ static UserInfo *user = nil;
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-        _userInfo     = [coder decodeObjectForKey:USERINFO];
+        _userInfo = [coder decodeObjectForKey:USERINFO];
     }
     return self;
 }

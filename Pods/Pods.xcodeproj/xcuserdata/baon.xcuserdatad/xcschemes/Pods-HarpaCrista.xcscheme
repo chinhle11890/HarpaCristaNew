@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85472AF6C307D28F03F599228FE6152F"
+               BlueprintIdentifier = "69DF01A9F0531F529938C5F1ACF85DE5"
                BuildableName = "Pods_HarpaCrista.framework"
                BlueprintName = "Pods-HarpaCrista"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "85472AF6C307D28F03F599228FE6152F"
+            BlueprintIdentifier = "69DF01A9F0531F529938C5F1ACF85DE5"
             BuildableName = "Pods_HarpaCrista.framework"
             BlueprintName = "Pods-HarpaCrista"
             ReferencedContainer = "container:Pods.xcodeproj">
