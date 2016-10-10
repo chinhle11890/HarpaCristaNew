@@ -76,8 +76,12 @@ static UserInfo *user = nil;
     return _userInfo[@"email"];
 }
 
+- (NSString *)accessToken {
+    return _userInfo[@"access_token"];
+}
+
 - (BOOL)isLogin {
-    return self.email != nil;
+    return self.accessToken != nil;
 }
 
 - (void)shouldPerformActionWithLogin:(dispatch_block_t)completion noLogin:(dispatch_block_t)no_login_handler {

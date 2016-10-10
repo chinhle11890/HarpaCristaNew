@@ -173,3 +173,17 @@
 
 
 @end
+
+void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion) {
+    NSInteger code = [responseObject[@"code"] integerValue];
+    if (code == 100) {
+        id object = responseObject[@"data"];
+        if (completion) {
+            completion(YES, object);
+        }
+    } else {
+        if (completion) {
+            completion(NO, nil);
+        }
+    }
+}

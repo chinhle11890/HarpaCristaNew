@@ -21,9 +21,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1694247820897685</string>
+				<string>fb1414894205191216</string>
 			</array>
 		</dict>
 		<dict>
@@ -38,9 +40,9 @@
 	<key>CFBundleVersion</key>
 	<string>3.2.0</string>
 	<key>FacebookAppID</key>
-	<string>1694247820897685</string>
+	<string>1414894205191216</string>
 	<key>FacebookDisplayName</key>
-	<string>HarpaCrista</string>
+	<string>Harpa Cristã com Acordes</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

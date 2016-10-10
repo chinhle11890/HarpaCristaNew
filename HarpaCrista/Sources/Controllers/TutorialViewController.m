@@ -399,24 +399,7 @@
             NSLog(@"error when request facebook graph: %@", error);
             return;
         }
-        NSLog(@"result: %@", result);
         [self loginWithService:result withType: @"FACEBOOK"];
-//        NSString *email = result[@"email"];
-//        if (email) {
-//            [self login]
-//            [self submitEmailAction:email];
-            
-//            AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//            CDUserInfo *userInfo = [[CDUserInfo alloc] initWithContext:appdelegate.managedObjectContext];
-//            CDUser *user = [[CDUser alloc] initWithContext:appdelegate.managedObjectContext];
-//            user.cdFirstName = @"";
-//            user.cdLastName = @"";
-//            user.cdEmail = @"";
-//            user.cdAvatar = nil;
-//            
-//            userInfo.user = nil;
-//            [appdelegate saveContext];
-//        }
     }];
 }
 
@@ -443,30 +426,38 @@
 - (void)loginWithService:(id)data withType:(NSString *)type {
     if ([type isEqualToString:@"FACEBOOK"]) {
         NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
-        NSString *fbId = data[@"id"];
-        NSString *name = data[@"name"];
-        NSString *email = data[@"email"];
-        NSString *picture = data[@"picture"][@"data"][@"url"];
-        NSString *firstName = data[@"first_name"];
-        NSString *lastName = data[@"last_name"];
         NSDictionary *params = @{
                                  @"social": type,
                                  @"os": @"ios",
                                  @"device_token": [NSUUID UUID].UUIDString,
-                                 @"facebook_token": [NSString stringWithFormat:@"%@?%@,%@,%@,%@,%@,%@,%@,%@", fbToken, fbId, name, email, picture, firstName, lastName,@"-", @"-"]
+                                 @"facebook_token": fbToken
                                  };
+        NSLog(@"login with params = %@", params);
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [manager POST:@"http://harpacca.com/api/public/api/users/social"
            parameters:params
              progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                 NSLog(@"--> %@", responseObject);
-                 [UserInfo shareInstance].userInfo = @{
-                                                       @"email": email
-                                                       };
-                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                 [appDelegate loginWithCompletion:nil];
+                 CommunicationHandler(task, responseObject, ^(BOOL success, id  _Nullable object) {
+                     if (success) {
+                         // Login success
+                         NSString *accessToken = object[@"access_token"];
+                         if (accessToken) {
+                             [UserInfo shareInstance].userInfo = @{
+                                                                   @"access_token": accessToken
+                                                                   };
+#pragma mark : TODO -  parse User infomation
+                             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                             [appDelegate loginWithCompletion:nil];
+                         }
+                     } else {
+                         
+                     }
+                 });
+                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                  NSLog(@"error: %@", error);
+                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
              }];
     }
 }

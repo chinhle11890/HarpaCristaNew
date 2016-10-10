@@ -9,6 +9,7 @@
 #import "JSONObject.h"
 #import "Constants.h"
 
+typedef void (^ResponseCompletion)(BOOL success, id _Nullable object);
 typedef void (^ResponseSuccessBlock)(id data, id header);
 typedef void (^ResponseSuccessBlockIndex)(id data, id header, int index);
 typedef void (^ResponseFailBlock)(NSInteger code, NSError * error);
@@ -48,3 +49,5 @@ typedef void (^ResponseFailBlock)(NSInteger code, NSError * error);
 
 
 @end
+
+void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion);

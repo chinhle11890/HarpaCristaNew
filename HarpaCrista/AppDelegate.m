@@ -207,27 +207,19 @@
 #pragma mark - logout
 - (void)logoutWithCompletion:(dispatch_block_t)completion_t {
     UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ECSlidingViewController *vc    = [storyboard instantiateViewControllerWithIdentifier: @"tutorialViewController"];
+    UIViewController *vc    = [storyboard instantiateViewControllerWithIdentifier: @"tutorialViewController"];
     if (vc) {
         [[UserInfo shareInstance] clearInfo];
         [[GIDSignIn sharedInstance] signOut];
-        [self setRootViewController:vc withTransition:UIViewAnimationOptionLayoutSubviews completion:^(BOOL finished) {
-            if (completion_t) {
-                completion_t();
-            }
-        }];
+        [self changeRootView:vc];
     }
 }
 
 - (void)loginWithCompletion:(dispatch_block_t)completion_t {
     UIStoryboard *storyboard= [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ECSlidingViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
     if (vc) {
-        [self setRootViewController:vc withTransition:UIViewAnimationOptionCurveEaseInOut completion:^(BOOL finished) {
-            if (completion_t) {
-                completion_t();
-            }
-        }];
+        [self changeRootView:vc];
     }
     
     if (completion_t) {
@@ -235,20 +227,8 @@
     }
 }
 
-- (void)setRootViewController:(UIViewController *)viewController
-               withTransition:(UIViewAnimationOptions)transition
-                   completion:(void (^)(BOOL finished))completion {
-    UIViewController *oldViewController = self.window.rootViewController;
-    [UIView transitionFromView:oldViewController.view
-                        toView:viewController.view
-                      duration:0.25
-                       options:(UIViewAnimationOptions)(transition|UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionLayoutSubviews)
-                    completion:^(BOOL finished) {
-                        self.window.rootViewController = viewController;
-                        if (completion) {
-                            completion(finished);
-                        }
-                    }];
+- (void) changeRootView:(UIViewController *)viewController {
+    _window.rootViewController = viewController;
 }
 
 @end

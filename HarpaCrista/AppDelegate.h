@@ -24,6 +24,7 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (void)logoutWithCompletion:(dispatch_block_t)completion_t;
 - (void)loginWithCompletion:(dispatch_block_t)completion_t;
+- (void)changeRootView:(UIViewController *)viewController;
 
 @end
 
