@@ -446,9 +446,11 @@
                              [UserInfo shareInstance].userInfo = @{
                                                                    @"access_token": accessToken
                                                                    };
-#pragma mark : TODO -  parse User infomation
+                             id user = object[@"user"];
                              AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                              [appDelegate loginWithCompletion:nil];
+//                             [self saveUserInformation:user context:appDelegate.managedObjectContext completion:^{
+//                             }];
                          }
                      } else {
                          
@@ -459,6 +461,27 @@
                  NSLog(@"error: %@", error);
                  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
              }];
+    }
+}
+
+- (void)saveUserInformation:(id)userData context:(NSManagedObjectContext *)context completion:(dispatch_block_t)completion {
+    CDUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
+    user.cdAddress = userData[@"address"];
+    user.cdBio = userData[@"bio"];
+    user.cdCountry = userData[@"country"];
+    user.cdEmail = userData[@"email"];
+    user.cdFirstName = userData[@"first_name"];
+    user.cdLastName = userData[@"last_name"];
+    user.cdPhone = userData[@"phone"];
+    user.cdState = userData[@"state"];
+    CDUserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
+    userInfo.user = user;
+    NSError *error = nil;
+    if (![context save: &error]) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
+    if (completion) {
+        completion();
     }
 }
 
