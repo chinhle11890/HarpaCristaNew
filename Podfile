@@ -7,4 +7,5 @@ target 'HarpaCrista' do
   pod 'Google/SignIn'
   pod 'Google/Analytics'
   pod 'AFNetworking'
+  pod 'HTProgressHUD'
 end

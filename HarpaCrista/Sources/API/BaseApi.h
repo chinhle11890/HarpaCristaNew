@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONObject.h"
 #import "Constants.h"
+#import "HTProgressHUD.h"
 
 typedef void (^ResponseCompletion)(BOOL success, id _Nullable object);
 typedef void (^ResponseSuccessBlock)(id data, id header);
@@ -51,3 +52,10 @@ typedef void (^ResponseFailBlock)(NSInteger code, NSError * error);
 @end
 
 void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion);
+
+//define the HTProgressHUD
+
+#define GET_INDICATOR (HTProgressHUD *)objc_getAssociatedObject(self, (__bridge const void *)([self class]))
+#define INIT_INDICATOR objc_setAssociatedObject(self, (__bridge const void *)([self class]), [[HTProgressHUD alloc] init], OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+#define SHOW_INDICATOR(sview) [GET_INDICATOR showInView:sview animated:YES]
+#define HIDE_INDICATOR(animated) [GET_INDICATOR hideWithAnimation:animated]

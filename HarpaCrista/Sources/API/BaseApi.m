@@ -42,7 +42,6 @@
         [client_ setGlobalTimeout:60.0 handleWithBlock:^(LRRestyRequest *client) {
             [this handleRequestTimeout];
         }];
-        
     }
     return self;
 }
@@ -170,7 +169,6 @@
             [_alert show];
     }
 }
-
 
 @end
 

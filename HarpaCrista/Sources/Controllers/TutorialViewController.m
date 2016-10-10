@@ -50,6 +50,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    INIT_INDICATOR;
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -434,7 +435,7 @@
                                  };
         NSLog(@"login with params = %@", params);
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        SHOW_INDICATOR(self.view);
         [manager POST:@"http://harpacca.com/api/public/api/users/social"
            parameters:params
              progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -455,11 +456,11 @@
                      } else {
                          
                      }
+                     HIDE_INDICATOR(YES);
                  });
-                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                  NSLog(@"error: %@", error);
-                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                 HIDE_INDICATOR(YES);
              }];
     }
 }
