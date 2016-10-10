@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSFetchRequest<CDUser *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *cdAddress;
-@property (nullable, nonatomic, retain) NSData *cdAvatar;
+@property (nullable, nonatomic, copy) NSString *cdAvatar;
 @property (nullable, nonatomic, copy) NSString *cdBio;
 @property (nullable, nonatomic, copy) NSString *cdCountry;
 @property (nullable, nonatomic, copy) NSString *cdEmail;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="CDArticle" representedClassName="CDArticle" syncable="YES">
         <attribute name="cdDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdDetail" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,7 +32,7 @@
     </entity>
     <entity name="CDUser" representedClassName="CDUser" syncable="YES">
         <attribute name="cdAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cdAvatar" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="cdAvatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdBio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdCountry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdEmail" optional="YES" attributeType="String" syncable="YES"/>
