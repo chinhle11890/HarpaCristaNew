@@ -7,6 +7,9 @@
 
 #import "UserInfo.h"
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "CDUserInfo+CoreDataClass.h"
+#import "CDUserInfo+CoreDataProperties.h"
 
 static NSString *KEY = @"userdefault";
 static NSString *USERINFO = @"userInfo";
@@ -63,8 +66,19 @@ static UserInfo *user = nil;
     UserInfo *user = [UserInfo shareInstance];
     user.userInfo = nil;
     [user update];
+//    [self clearUserInfo];
 }
 
+- (void)clearUserInfo {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CDUserInfo"];
+    NSError *error = nil;
+    NSArray *objects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject * object in objects) {
+        [context deleteObject:object];
+    }
+}
 
 - (void)setUserInfo:(NSDictionary *)userInfo {
     _userInfo = userInfo;
@@ -79,6 +93,7 @@ static UserInfo *user = nil;
 - (NSString *)accessToken {
     return _userInfo[@"access_token"];
 }
+
 
 - (BOOL)isLogin {
     return self.accessToken != nil;

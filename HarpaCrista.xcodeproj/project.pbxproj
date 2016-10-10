@@ -198,6 +198,7 @@
 		BF10221B1D8D0662007CAAA2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */; };
 		BF10221C1D8D0662007CAAA2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */; };
 		BF1022201D8D09C7007CAAA2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF10221F1D8D09C7007CAAA2 /* Bolts.framework */; };
+		BF1FE7051DABF01400B9D7EE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1FE7041DABF01400B9D7EE /* ProfileViewController.m */; };
 		BF488B1F1DA3FBA600445ACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF488B1E1DA3FBA600445ACE /* Assets.xcassets */; };
 		BFC7053B1D8E99A9005C64AC /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC7053A1D8E99A9005C64AC /* UserInfo.m */; };
 		C8E1E4FC1CB2485A002808E6 /* icn_hinos.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */; };
@@ -484,6 +485,8 @@
 		BF1022181D8D0662007CAAA2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BF1022191D8D0662007CAAA2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		BF10221F1D8D09C7007CAAA2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		BF1FE7031DABF01400B9D7EE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		BF1FE7041DABF01400B9D7EE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		BF488B1E1DA3FBA600445ACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		BFC705391D8E99A9005C64AC /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		BFC7053A1D8E99A9005C64AC /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
@@ -737,6 +740,8 @@
 				23B85A341C85E32F00144193 /* SettingsViewController.m */,
 				238877571D8E9BC500BCBB5E /* HomeViewController.h */,
 				238877581D8E9BC500BCBB5E /* HomeViewController.m */,
+				BF1FE7031DABF01400B9D7EE /* ProfileViewController.h */,
+				BF1FE7041DABF01400B9D7EE /* ProfileViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1306,6 +1311,7 @@
 				23289D4C1D05C8D500235F49 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				23B85A371C85E32F00144193 /* HinosDetailViewController.m in Sources */,
 				23289D511D05C8D500235F49 /* UIViewController+ECSlidingViewController.m in Sources */,
+				BF1FE7051DABF01400B9D7EE /* ProfileViewController.m in Sources */,
 				230534E71CA2F9F000ACEEDA /* LRRestyResource.m in Sources */,
 				23B85A381C85E32F00144193 /* SettingsViewController.m in Sources */,
 			);

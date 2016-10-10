@@ -181,7 +181,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                 self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MetronomoNavigationController"];
                 break;
             case 5:
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
+                //self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
                 break;
                 
             default:

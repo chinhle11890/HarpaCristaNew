@@ -449,9 +449,9 @@
                                                                    };
                              id user = object[@"user"];
                              AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                             [self saveUserInformation:user context:appDelegate.managedObjectContext completion:^{
-                                 [appDelegate loginWithCompletion:nil];
-                             }];
+                             [appDelegate loginWithCompletion:nil];
+//                             [self saveUserInformation:user context:appDelegate.managedObjectContext completion:^{
+//                             }];
                          }
                      } else {
                          
