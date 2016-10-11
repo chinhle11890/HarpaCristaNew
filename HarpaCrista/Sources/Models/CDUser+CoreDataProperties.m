@@ -26,6 +26,7 @@
 @dynamic cdInstrument;
 @dynamic cdSocial;
 @dynamic cdSong;
+@dynamic cdUserId;
 @dynamic followedInfo;
 @dynamic followerInfo;
 

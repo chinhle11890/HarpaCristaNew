@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *cdInstrument;
 @property (nullable, nonatomic, copy) NSString *cdSocial;
 @property (nullable, nonatomic, copy) NSString *cdSong;
+@property (nullable, nonatomic, copy) NSString *cdUserId;
 @property (nullable, nonatomic, retain) CDUserInfo *followedInfo;
 @property (nullable, nonatomic, retain) NSSet<CDUserInfo *> *followerInfo;
 

@@ -43,6 +43,7 @@
         <attribute name="cdSocial" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdSong" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cdState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdUserId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="followedInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUserInfo" inverseName="follower" inverseEntity="CDUserInfo" syncable="YES"/>
         <relationship name="followerInfo" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDUserInfo" inverseName="user" inverseEntity="CDUserInfo" syncable="YES"/>
     </entity>
@@ -57,7 +58,7 @@
         <element name="CDPlaylist" positionX="18" positionY="117" width="128" height="75"/>
         <element name="CDSong" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="CDSongInfo" positionX="36" positionY="126" width="128" height="75"/>
-        <element name="CDUser" positionX="-54" positionY="27" width="128" height="255"/>
+        <element name="CDUser" positionX="-54" positionY="27" width="128" height="270"/>
         <element name="CDUserInfo" positionX="-9" positionY="72" width="128" height="75"/>
     </elements>
 </model>

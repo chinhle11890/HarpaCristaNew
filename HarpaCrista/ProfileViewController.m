@@ -65,8 +65,25 @@
 }
 
 - (void)saveUserInformation:(id)userData context:(NSManagedObjectContext *)context completion:(dispatch_block_t)completion {
-    CDUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
-    
+    NSString *userId = userData[@"id"] == [NSNull null] ? nil : [userData[@"id"] stringValue];
+    if (!userId) {
+        return;
+    }
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDUserInfo"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"user.cdUserId == %@", userId];
+    NSError *error = nil;
+    NSArray *objects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        return;
+    }
+    CDUserInfo *userInfo = objects.firstObject;
+    CDUser *user;
+    if (userInfo) {
+        user = userInfo.user;
+    } else {
+        userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
+        user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
+    }
     user.cdAddress = userData[@"address"] == [NSNull null] ? nil : userData[@"address"];
     user.cdAvatar = userData[@"avatar_url"] == [NSNull null] ? nil : userData[@"avatar_url"];
     user.cdBio = userData[@"bio"] == [NSNull null] ? nil : userData[@"bio"];
@@ -79,9 +96,10 @@
     user.cdInstrument = userData[@"favorite_instrument"] == [NSNull null] ? nil : userData[@"favorite_instrument"];
     user.cdSong = userData[@"favorite_song"] == [NSNull null] ? nil : userData[@"favorite_song"];
     user.cdSocial = userData[@"social"] == [NSNull null] ? nil : userData[@"social"];
-    CDUserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
+    user.cdUserId = userId;
+    
     userInfo.user = user;
-    NSError *error = nil;
+    error = nil;
     if (![context save: &error]) {
         NSLog(@"Error: %@", [error localizedDescription]);
     }
