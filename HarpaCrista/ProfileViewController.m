@@ -124,7 +124,7 @@
     if (![context save: &error]) {
         NSLog(@"Error: %@", [error localizedDescription]);
     }
-    [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.cdAvatar]];
+    [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.cdAvatar] placeholderImage:[UIImage imageNamed:@"icn_user"]];
     _nameLabel.text = [NSString stringWithFormat:@"%@ %@", user.cdFirstName, user.cdLastName];
     _locationLabel.text = user.cdCountry;
     _bioLabel.text = user.cdBio;
@@ -151,21 +151,21 @@
                                                            style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
                                                              if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-                                                                 UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-                                                                 imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                                                                 imagePickerController.allowsEditing = YES;
-                                                                 imagePickerController.delegate = self;
-                                                                 [self presentViewController:imagePickerController animated:YES completion:nil];
+                                                                 UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+                                                                 picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                                                 picker.allowsEditing = YES;
+                                                                 picker.delegate = self;
+                                                                 [self presentViewController:picker animated:YES completion:nil];
                                                              }
                                                          }];
     [alert addAction:cameraAction];
     
     UIAlertAction *galleryAction = [UIAlertAction actionWithTitle:@"Select From Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        imagePickerController.allowsEditing = YES;
-        imagePickerController.delegate = self;
-        [self presentViewController:imagePickerController animated:YES completion:nil];
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.allowsEditing = YES;
+        picker.delegate = self;
+        [self presentViewController:picker animated:YES completion:nil];
     }];
     [alert addAction:galleryAction];
     
@@ -186,4 +186,9 @@
     _avatarImageView.image = image;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

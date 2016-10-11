@@ -76,6 +76,7 @@
         [self initData];
     }
     [self configureGoogleSignIn];
+    NSLog(@"ahihi.........");
 }
 
 - (void)configureGoogleSignIn {

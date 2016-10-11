@@ -116,9 +116,9 @@
     [[GGLContext sharedInstance] configureWithError:&configureError];
     NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
-    //    GAI *gai = [GAI sharedInstance];
-    //    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-    //    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+//        GAI *gai = [GAI sharedInstance];
+//        gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+//        gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
 }
 
 #pragma mark - Core Data stack
