@@ -8,4 +8,5 @@ target 'HarpaCrista' do
   pod 'Google/Analytics'
   pod 'AFNetworking'
   pod 'HTProgressHUD'
+  pod 'SDWebImage'
 end

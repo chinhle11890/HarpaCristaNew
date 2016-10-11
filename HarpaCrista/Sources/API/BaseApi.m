@@ -12,6 +12,7 @@
 #import "LRRestyResponse+Json.h"
 #import <Foundation/Foundation.h>
 #import "Constants.h"
+#import "UserInfo.h"
 
 @implementation NSDictionary (Utility)
 
@@ -170,9 +171,27 @@
     }
 }
 
++ (AFHTTPSessionManager *) HTTPSessionManagerRequiredAuthorization:(BOOL)authorization {
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+    AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    [policy setValidatesDomainName:NO];
+    [policy setAllowInvalidCertificates:YES];
+    manager.securityPolicy = policy;
+    
+    manager.requestSerializer = [[AFJSONRequestSerializer alloc] init];
+    manager.responseSerializer  = [AFJSONResponseSerializer serializer];
+    if (authorization && [UserInfo shareInstance].accessToken) {
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [UserInfo shareInstance].accessToken] forHTTPHeaderField:@"Authorization"];
+    }
+    [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",@"text/html",@"text/plain"]];
+    return manager;
+}
+
 @end
 
 void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion) {
+    NSLog(@"Response object = %@", responseObject);
     NSInteger code = [responseObject[@"code"] integerValue];
     if (code == 100) {
         id object = responseObject[@"data"];
@@ -180,8 +199,9 @@ void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull resp
             completion(YES, object);
         }
     } else {
+        id error = responseObject[@"error"];
         if (completion) {
-            completion(NO, nil);
+            completion(NO, error);
         }
     }
 }

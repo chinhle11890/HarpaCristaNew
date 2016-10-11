@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FL1-63-7vf">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="FL1-63-7vf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -1675,7 +1675,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuSlideBarTableViewCell" id="XJm-4S-tkS" customClass="MenuSlideBarTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="281" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="282" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJm-4S-tkS" id="TGB-Gv-hge">
                                             <frame key="frameInset" width="281.5" height="44"/>
@@ -1969,7 +1969,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qa9-1j-Dbs">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="Yqd-xA-QhL">
                                 <cells>
@@ -1988,7 +1988,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZD2-Gy-fgo">
-                                                            <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="ZD2-Gy-fgo" secondAttribute="height" multiplier="1:1" id="2hM-T7-bVc"/>
                                                                 <constraint firstAttribute="width" constant="100" id="ML7-oB-OTZ"/>
@@ -2550,8 +2549,17 @@
                                 <action selector="revealMenu:" destination="96f-sV-Qev" id="oEO-fV-ram"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kkt-Jv-AMf"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="_avatarImageView" destination="ZD2-Gy-fgo" id="pKI-fL-0qw"/>
+                        <outlet property="_bioLabel" destination="oFS-ga-Gou" id="g7i-k7-jUP"/>
+                        <outlet property="_favouriesLabel" destination="DZ5-as-PMF" id="vqI-jD-mGc"/>
+                        <outlet property="_intrumentoLabel" destination="gIw-Hg-YpS" id="6fQ-gB-JOG"/>
+                        <outlet property="_locationLabel" destination="Jbf-OY-sD3" id="ZAo-uQ-1gh"/>
+                        <outlet property="_nameLabel" destination="zUF-IL-Ib9" id="grc-Vr-k9B"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4w-9C-8IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

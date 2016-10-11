@@ -382,27 +382,28 @@
                                     NSLog(@"login facebook cancelled: %d", result.isCancelled);
                                     return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
-                                    [self getFBUserData];
+//                                    [self getFBUserData];
+                                    [self loginWithService:@"FACEBOOK"];
                                 }
                             }];
 }
 
-- (void)getFBUserData {
-    if (![FBSDKAccessToken currentAccessToken]) {
-        return;
-    }
-    NSDictionary *parameters = @{
-                                 @"fields": @"id,name,email,birthday,gender,last_name,first_name,location,picture{url}"
-                                 };
-    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
-    [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-        if (error) {
-            NSLog(@"error when request facebook graph: %@", error);
-            return;
-        }
-        [self loginWithService:result withType: @"FACEBOOK"];
-    }];
-}
+//- (void)getFBUserData {
+//    if (![FBSDKAccessToken currentAccessToken]) {
+//        return;
+//    }
+//    NSDictionary *parameters = @{
+//                                 @"fields": @"id,name,email,birthday,gender,last_name,first_name,location,picture{url}"
+//                                 };
+//    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
+//    [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+//        if (error) {
+//            NSLog(@"error when request facebook graph: %@", error);
+//            return;
+//        }
+//        [self loginWithService:result withType: @"FACEBOOK"];
+//    }];
+//}
 
 #pragma mark - google signin
 - (IBAction)didClickGoogleSignIn:(id)sender {
@@ -424,7 +425,7 @@
     
 }
 
-- (void)loginWithService:(id)data withType:(NSString *)type {
+- (void)loginWithService:(NSString *)type {
     if ([type isEqualToString:@"FACEBOOK"]) {
         NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
         NSDictionary *params = @{
@@ -447,7 +448,7 @@
                              [UserInfo shareInstance].userInfo = @{
                                                                    @"access_token": accessToken
                                                                    };
-                             id user = object[@"user"];
+//                             id user = object[@"user"];
                              AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                              [appDelegate loginWithCompletion:nil];
 //                             [self saveUserInformation:user context:appDelegate.managedObjectContext completion:^{

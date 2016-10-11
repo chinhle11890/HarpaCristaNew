@@ -9,6 +9,21 @@
 #import "JSONObject.h"
 #import "Constants.h"
 #import "HTProgressHUD.h"
+#import <objc/objc.h>
+#import <objc/runtime.h>
+#import "AFNetworking/AFNetworking.h"
+#import <HTProgressHUD/HTProgressHUD.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDWebImageOperation.h>
+#import <SDWebImage/SDWebImageDecoder.h>
+#import <SDWebImage/SDWebImagePrefetcher.h>
+#import <SDWebImage/SDWebImageDownloader.h>
+#import <SDWebImage/SDWebImageDownloaderOperation.h>
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImage+MultiFormat.h>
+#import <SDWebImage/UIButton+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIImage+GIF.h>
 
 typedef void (^ResponseCompletion)(BOOL success, id _Nullable object);
 typedef void (^ResponseSuccessBlock)(id data, id header);
@@ -48,6 +63,7 @@ typedef void (^ResponseFailBlock)(NSInteger code, NSError * error);
 
 - (void) cancelAllRequests;
 
++ (AFHTTPSessionManager *) HTTPSessionManagerRequiredAuthorization:(BOOL)authorization;
 
 @end
 

@@ -6,13 +6,23 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>HTProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-HarpaCrista.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -22,7 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69DF01A9F0531F529938C5F1ACF85DE5</key>
+		<key>3C05D5CF03633BB3A6A498D8E3014405</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>68B42B22C91E571B1F0B1736D5A376B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A78F925A4777992E769905FAD41CF53</key>
 		<dict>
 			<key>primary</key>
 			<true/>

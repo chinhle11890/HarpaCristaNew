@@ -181,8 +181,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                 self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MetronomoNavigationController"];
                 break;
             case 5:
-                //self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsNavigationController"];
                 break;
                 
             default:
@@ -191,7 +190,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         [self.slidingViewController resetTopViewAnimated:YES];
     } else if (indexPath.section == 1) {
         switch (indexPath.row) {
-            case 0:
+            case 0: {
+                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
+                [self.slidingViewController resetTopViewAnimated:YES];
+            }
                 break;
             case 1:
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://harpacca.com/perguntas-e-respostas/"]];

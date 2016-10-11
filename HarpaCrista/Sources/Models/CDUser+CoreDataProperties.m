@@ -23,6 +23,9 @@
 @dynamic cdLastName;
 @dynamic cdPhone;
 @dynamic cdState;
+@dynamic cdInstrument;
+@dynamic cdSocial;
+@dynamic cdSong;
 @dynamic followedInfo;
 @dynamic followerInfo;
 
