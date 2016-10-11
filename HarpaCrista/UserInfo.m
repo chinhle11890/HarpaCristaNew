@@ -66,15 +66,19 @@ static UserInfo *user = nil;
     UserInfo *user = [UserInfo shareInstance];
     user.userInfo = nil;
     [user update];
-//    [self clearUserInfo];
+    [self clearUserInfo];
 }
 
 - (void)clearUserInfo {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSManagedObjectContext *context = appDelegate.managedObjectContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"CDUserInfo"];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDUserInfo"];
     NSError *error = nil;
     NSArray *objects = [context executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        return;
+    }
     for (NSManagedObject * object in objects) {
         [context deleteObject:object];
     }

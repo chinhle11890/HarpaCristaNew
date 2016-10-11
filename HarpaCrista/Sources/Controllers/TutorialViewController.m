@@ -382,28 +382,10 @@
                                     NSLog(@"login facebook cancelled: %d", result.isCancelled);
                                     return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
-//                                    [self getFBUserData];
                                     [self loginWithService:@"FACEBOOK"];
                                 }
                             }];
 }
-
-//- (void)getFBUserData {
-//    if (![FBSDKAccessToken currentAccessToken]) {
-//        return;
-//    }
-//    NSDictionary *parameters = @{
-//                                 @"fields": @"id,name,email,birthday,gender,last_name,first_name,location,picture{url}"
-//                                 };
-//    FBSDKGraphRequest *graphRequest = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters];
-//    [graphRequest startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-//        if (error) {
-//            NSLog(@"error when request facebook graph: %@", error);
-//            return;
-//        }
-//        [self loginWithService:result withType: @"FACEBOOK"];
-//    }];
-//}
 
 #pragma mark - google signin
 - (IBAction)didClickGoogleSignIn:(id)sender {
@@ -448,11 +430,8 @@
                              [UserInfo shareInstance].userInfo = @{
                                                                    @"access_token": accessToken
                                                                    };
-//                             id user = object[@"user"];
                              AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                              [appDelegate loginWithCompletion:nil];
-//                             [self saveUserInformation:user context:appDelegate.managedObjectContext completion:^{
-//                             }];
                          }
                      } else {
                          
@@ -463,29 +442,6 @@
                  NSLog(@"error: %@", error);
                  HIDE_INDICATOR(YES);
              }];
-    }
-}
-
-- (void)saveUserInformation:(id)userData context:(NSManagedObjectContext *)context completion:(dispatch_block_t)completion {
-    CDUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
-    
-    user.cdAddress = userData[@"address"] == [NSNull null] ? nil : userData[@"address"];
-    user.cdAvatar = userData[@"avatar_url"] == [NSNull null] ? nil : userData[@"avatar_url"];
-    user.cdBio = userData[@"bio"] == [NSNull null] ? nil : userData[@"bio"];
-    user.cdCountry = userData[@"country"] == [NSNull null] ? nil : userData[@"country"];
-    user.cdEmail = userData[@"email"] == [NSNull null] ? nil : userData[@"email"];
-    user.cdFirstName = userData[@"first_name"] == [NSNull null] ? nil : userData[@"first_name"];
-    user.cdLastName = userData[@"last_name"] == [NSNull null] ? nil : userData[@"last_name"];
-    user.cdPhone = userData[@"phone"] == [NSNull null] ? nil : userData[@"phone"];
-    user.cdState = userData[@"state"] == [NSNull null] ? nil : userData[@"state"];
-    CDUserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
-    userInfo.user = user;
-    NSError *error = nil;
-    if (![context save: &error]) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
-    if (completion) {
-        completion();
     }
 }
 
