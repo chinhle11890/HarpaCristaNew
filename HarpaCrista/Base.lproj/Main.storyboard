@@ -1678,7 +1678,7 @@
                                         <rect key="frame" x="0.0" y="22" width="282" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJm-4S-tkS" id="TGB-Gv-hge">
-                                            <frame key="frameInset" width="281.5" height="44"/>
+                                            <frame key="frameInset" width="282" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ed7-KI-KwE">
@@ -1987,7 +1987,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZD2-Gy-fgo">
+                                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZD2-Gy-fgo">
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="ZD2-Gy-fgo" secondAttribute="height" multiplier="1:1" id="2hM-T7-bVc"/>
                                                                 <constraint firstAttribute="width" constant="100" id="ML7-oB-OTZ"/>
@@ -1998,6 +1999,9 @@
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="3AX-UU-fdd" appends="YES" id="Yz3-jA-bED"/>
+                                                            </connections>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-QY-sTX">
                                                             <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2549,12 +2553,17 @@
                                 <action selector="revealMenu:" destination="96f-sV-Qev" id="oEO-fV-ram"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="kkt-Jv-AMf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="kkt-Jv-AMf">
+                            <connections>
+                                <action selector="didClickEditButton:" destination="96f-sV-Qev" id="Fe2-dU-pHh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_avatarImageView" destination="ZD2-Gy-fgo" id="pKI-fL-0qw"/>
                         <outlet property="_bioLabel" destination="oFS-ga-Gou" id="g7i-k7-jUP"/>
+                        <outlet property="_editButton" destination="kkt-Jv-AMf" id="abi-yZ-LJU"/>
                         <outlet property="_favouriesLabel" destination="DZ5-as-PMF" id="vqI-jD-mGc"/>
                         <outlet property="_intrumentoLabel" destination="gIw-Hg-YpS" id="6fQ-gB-JOG"/>
                         <outlet property="_locationLabel" destination="Jbf-OY-sD3" id="ZAo-uQ-1gh"/>
@@ -2562,6 +2571,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4w-9C-8IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3AX-UU-fdd">
+                    <connections>
+                        <action selector="chooseAvatar:" destination="96f-sV-Qev" id="vfQ-jh-7R7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1654.5" y="2811.5"/>
         </scene>
@@ -3117,7 +3131,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WZN-yF-au3">
@@ -3157,7 +3171,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                 <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
