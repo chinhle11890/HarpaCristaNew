@@ -492,6 +492,7 @@
 		BFC7053A1D8E99A9005C64AC /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		C8E1E4EA1CB2485A002808E6 /* icn_hinos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_hinos.png; path = Resources/Images/icn_hinos.png; sourceTree = "<group>"; };
 		C8E1E4F01CB2485A002808E6 /* icn_mais.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icn_mais.png; path = Resources/Images/icn_mais.png; sourceTree = "<group>"; };
+		DC61DDEC1DADDC44006B0A8A /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -961,6 +962,7 @@
 				BFC7053A1D8E99A9005C64AC /* UserInfo.m */,
 				230534ED1CA2FA6C00ACEEDA /* Constants.h */,
 				230534EE1CA2FA6C00ACEEDA /* Constants.m */,
+				DC61DDEC1DADDC44006B0A8A /* Define.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";

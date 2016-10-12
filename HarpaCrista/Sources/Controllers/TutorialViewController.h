@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^loginCompletion)(BOOL success);
+
 @interface TutorialViewController : UIViewController
+
+@property (strong, nonatomic) loginCompletion completion;
 
 @end

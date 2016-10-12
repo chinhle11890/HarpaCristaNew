@@ -18,5 +18,3 @@ extern NSString * const keyOpenD;
 extern NSString * const keyOpenE;
 extern NSString * const keyOpenEm;
 extern NSString * const keyOpenG;
-
-

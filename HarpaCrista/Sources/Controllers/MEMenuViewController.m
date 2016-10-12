@@ -26,6 +26,8 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "AppDelegate.h"
+#import "UserInfo.h"
+#import "TutorialViewController.h"
 
 #define kLogoutCellIndex 12
 #define kFooterHeight 44.0f
@@ -191,8 +193,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     } else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0: {
-                self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
-                [self.slidingViewController resetTopViewAnimated:YES];
+                if (![UserInfo shareInstance].isLogin) {
+                    TutorialViewController *tutorialController = [self.storyboard instantiateViewControllerWithIdentifier:@"tutorialViewController"];
+                    tutorialController.completion = ^(BOOL success) {
+                        if (success) {
+                            self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
+                            [self.slidingViewController resetTopViewAnimated:YES];
+                        }
+                    };
+                    [self presentViewController:tutorialController animated:YES completion:nil];
+                } else {
+                    self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileNavigationController"];
+                    [self.slidingViewController resetTopViewAnimated:YES];
+                }
             }
                 break;
             case 1:

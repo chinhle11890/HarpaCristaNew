@@ -24,6 +24,7 @@
     __weak IBOutlet UILabel *_intrumentoLabel;
     __weak IBOutlet UILabel *_favouriesLabel;
     __weak IBOutlet UIBarButtonItem *_editButton;
+    __weak IBOutlet UILabel *_emailLabel;
     BOOL _canEdited;
 }
 
@@ -49,9 +50,6 @@
 
 #pragma mark - Call Webservice
 - (void)getUserInformation {
-    if (![UserInfo shareInstance].isLogin) {
-        return;
-    }
     AFHTTPSessionManager *manager = [BaseApi HTTPSessionManagerRequiredAuthorization:YES];
     SHOW_INDICATOR(self.navigationController.view);
     [manager GET:@"http://harpacca.com/api/public/api/users/get_profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -130,6 +128,7 @@
     _bioLabel.text = user.cdBio;
     _intrumentoLabel.text = user.cdInstrument;
     _favouriesLabel.text = user.cdSong;
+    _emailLabel.text = user.cdEmail;
     if (completion) {
         completion();
     }
@@ -176,6 +175,8 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+
 
 #pragma mark -  UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {

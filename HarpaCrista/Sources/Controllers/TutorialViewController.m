@@ -21,6 +21,7 @@
 #import "CDUserInfo+CoreDataClass.h"
 #import "CDUser+CoreDataProperties.h"
 #import "AFNetworking/AFNetworking.h"
+#import "Define.h"
 
 @interface TutorialViewController () <UIPageViewControllerDataSource,UITextFieldDelegate, GIDSignInDelegate, GIDSignInUIDelegate> {
     __weak IBOutlet UIPageControl *_pageControl;
@@ -76,7 +77,7 @@
         [self initData];
     }
     [self configureGoogleSignIn];
-    NSLog(@"ahihi.........");
+    
 }
 
 - (void)configureGoogleSignIn {
@@ -86,6 +87,12 @@
     _googleSignInButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     _googleSignInButton.center = self.view.center;
     _googleSignInButton.hidden = YES;
+}
+
+- (BOOL)isModal {
+    return self.presentingViewController.presentedViewController == self
+    || (self.navigationController != nil && self.navigationController.presentingViewController.presentedViewController == self.navigationController)
+    || [self.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -253,7 +260,7 @@
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             // Post email successfully. Continue!
             //
-            [self goToMainView];
+//            [self goToMainView];
         }onError:^(NSInteger code, NSError *error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"Failed with error: %@", error.description);
@@ -290,16 +297,16 @@
 }
 
 - (IBAction)skipAction:(id)sender {
-//    [self goToMainView];
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    [appDelegate loginWithCompletion:nil];
-}
-
-- (void)goToMainView {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ECSlidingViewController *slidingViewController = [storyboard instantiateViewControllerWithIdentifier:@"slideMenu"];
-    [self presentViewController:slidingViewController animated:YES completion:^{
-    }];
+    if ([self isModal]) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (_completion) {
+                _completion(NO);
+            }
+        }];
+    } else {
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate loginWithCompletion:nil];
+    }
 }
 
 - (BOOL)validateEmailWithString:(NSString*)checkString {
@@ -431,8 +438,16 @@
                              [UserInfo shareInstance].userInfo = @{
                                                                    @"access_token": accessToken
                                                                    };
-                             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                             [appDelegate loginWithCompletion:nil];
+                             if ([self isModal]) {
+                                 [self dismissViewControllerAnimated:YES completion:^{
+                                     if (_completion) {
+                                         _completion(YES);
+                                     }
+                                 }];
+                             } else {
+                                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                                 [appDelegate loginWithCompletion:nil];
+                             }
                          }
                      } else {
                          
