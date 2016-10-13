@@ -140,7 +140,7 @@
     _canEdited ? [button setTitle:@"Edit"] : [button setTitle:@"Save"];
     if (!_canEdited) {
         //Update profile
-//        [self updateUserInformation];
+        [self updateUserInformation];
     }
 }
 
@@ -176,8 +176,6 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
-
 #pragma mark -  UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
@@ -190,6 +188,78 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark edit profile
+- (void)showAlert:(NSString *)inputString completion:(void (^)(id data))completion {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Harpa Cristã" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *textField = [alert.textFields firstObject];
+        if (completion && textField.text) {
+            completion(textField.text);
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Input text here";
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        if (inputString) {
+            textField.text = inputString;
+        }
+    }];
+    [alert addAction:cancelAction];
+    [alert addAction:saveAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)didClickName:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_nameLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _nameLabel.text = data;
+        }
+    }];
+}
+
+- (IBAction)didClickLocation:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_locationLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _locationLabel.text = data;
+        }
+    }];
+}
+
+- (IBAction)didClickBio:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_bioLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _bioLabel.text = data;
+        }
+    }];
+}
+
+- (IBAction)didClickInstrument:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_intrumentoLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _intrumentoLabel.text = data;
+        }
+    }];
+}
+
+- (IBAction)didClickFavouries:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_favouriesLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _favouriesLabel.text = data;
+        }
+    }];
+}
+
+- (IBAction)didClickEmail:(UITapGestureRecognizer *)sender {
+    [self showAlert:[_emailLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] completion:^(id data) {
+        if (data) {
+            _emailLabel.text = data;
+        }
+    }];
 }
 
 @end
