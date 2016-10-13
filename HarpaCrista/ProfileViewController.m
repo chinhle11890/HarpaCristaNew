@@ -25,7 +25,6 @@
     __weak IBOutlet UILabel *_favouriesLabel;
     __weak IBOutlet UIBarButtonItem *_editButton;
     __weak IBOutlet UILabel *_emailLabel;
-    BOOL _canEdited;
 }
 
 @end
@@ -35,7 +34,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     INIT_INDICATOR;
-    _canEdited = YES;
     [self getUserInformation];
 }
 
@@ -70,12 +68,57 @@
 }
 
 - (void)updateUserInformation {
-    AFHTTPSessionManager *manager = [BaseApi HTTPSessionManagerRequiredAuthorization:YES];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    if ([UserInfo shareInstance].accessToken) {
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [UserInfo shareInstance].accessToken] forHTTPHeaderField:@"Authorization"];
+    }
     SHOW_INDICATOR(self.navigationController.view);
     [manager POST:@"http://harpacca.com/api/public/api/users/update_profile" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        UIImage *image = _avatarImageView.image;
+        if (image) {
+            CGFloat maxSize = MAX(image.size.width, image.size.height);
+            NSData *data;
+            if (maxSize > 5*2014) {
+                data = UIImageJPEGRepresentation(image, 5*2014/maxSize);
+            } else {
+                data = UIImagePNGRepresentation(image);
+            }
+            [formData appendPartWithFileData:data name:@"avatar_url" fileName:@"photo.png" mimeType:@"image/png"];
+        }
+        if (_nameLabel.text) {
+            NSMutableArray *name = [NSMutableArray arrayWithArray: [_nameLabel.text componentsSeparatedByString:@" "]];
+            NSString *firstName = name.firstObject;
+            [formData appendPartWithFormData:[firstName dataUsingEncoding:NSUTF8StringEncoding] name:@"first_name"];
+            if (name.count > 0) {
+                [name removeObjectAtIndex:0];
+                NSString *lastName = [name componentsJoinedByString:@" "];
+                [formData appendPartWithFormData:[lastName dataUsingEncoding:NSUTF8StringEncoding] name:@"last_name"];
+            }
+        }
+        if (_locationLabel.text) {
+            [formData appendPartWithFormData:[_locationLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"country"];
+        }
+        if (_bioLabel.text) {
+            [formData appendPartWithFormData:[_bioLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"bio"];
+        }
+        if (_emailLabel.text) {
+            [formData appendPartWithFormData:[_emailLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"email"];
+        }
+        if (_intrumentoLabel.text) {
+            [formData appendPartWithFormData:[_intrumentoLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"favorite_instrument"];
+        }
+        if (_favouriesLabel.text) {
+            [formData appendPartWithFormData:[_favouriesLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"favorite_song"];
+        }
         
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        CommunicationHandler(task, responseObject, ^(BOOL success, id  _Nullable object) {
+            if (success) {
+                
+            }
+        });
         HIDE_INDICATOR(YES);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error: %@", error);
@@ -135,13 +178,7 @@
 }
 
 - (IBAction)didClickEditButton:(id)sender {
-    UIBarButtonItem *button = sender;
-    _canEdited = !_canEdited;
-    _canEdited ? [button setTitle:@"Edit"] : [button setTitle:@"Save"];
-    if (!_canEdited) {
-        //Update profile
-        [self updateUserInformation];
-    }
+    [self updateUserInformation];
 }
 
 - (IBAction)chooseAvatar:(id)sender {

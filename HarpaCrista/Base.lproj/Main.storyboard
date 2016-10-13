@@ -1307,7 +1307,7 @@
                 <navigationController storyboardIdentifier="naviHinosVC" automaticallyAdjustsScrollViewInsets="NO" id="Hwl-jm-jKT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Hinos" id="laY-ws-HbR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ke1-nw-hpS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ke1-nw-hpS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1388,7 +1388,7 @@
                 <navigationController storyboardIdentifier="FavoritosNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="REc-Ch-OOF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoritos" id="u3e-Q0-DSm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jrr-xO-wQU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jrr-xO-wQU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1411,7 +1411,7 @@
                 <navigationController storyboardIdentifier="SettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="2Cm-IO-Xc5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mais" id="5b0-kj-kzy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="u1d-dQ-b9w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="u1d-dQ-b9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1678,7 +1678,7 @@
                                         <rect key="frame" x="0.0" y="22" width="282" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJm-4S-tkS" id="TGB-Gv-hge">
-                                            <frame key="frameInset" width="281.5" height="44"/>
+                                            <frame key="frameInset" width="282" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ed7-KI-KwE">
@@ -2577,7 +2577,7 @@
                                 <action selector="revealMenu:" destination="96f-sV-Qev" id="oEO-fV-ram"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="kkt-Jv-AMf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kkt-Jv-AMf">
                             <connections>
                                 <action selector="didClickEditButton:" destination="96f-sV-Qev" id="Fe2-dU-pHh"/>
                             </connections>
@@ -2639,7 +2639,7 @@
             <objects>
                 <navigationController storyboardIdentifier="TunerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4HZ-TZ-ZT8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gjH-NL-eoR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gjH-NL-eoR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3067,7 +3067,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MetronomoNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DeG-nf-MTK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pJp-PP-lFL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pJp-PP-lFL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3281,7 +3281,7 @@
             <objects>
                 <navigationController storyboardIdentifier="naviHomeVC" automaticallyAdjustsScrollViewInsets="NO" id="Y1t-Dm-AwX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mxQ-8U-3a2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mxQ-8U-3a2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3303,7 +3303,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="i4g-X6-rH6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="fpk-nd-L54">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="fpk-nd-L54">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
