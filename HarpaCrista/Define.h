@@ -35,5 +35,10 @@
 #define kSocial @"social"
 #define kState @"state"
 
+#define kOs @"os"
+#define kDeviceToken @"device_token"
+#define kFacebookToken @"facebook_token"
+#define kGoogleToken @"google_token"
+
 
 #endif /* Define_h */

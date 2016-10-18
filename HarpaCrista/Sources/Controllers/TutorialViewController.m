@@ -409,13 +409,19 @@
     [self loginWithService:kGoogle token:user.authentication.idToken];
 }
 
-- (void)loginWithService:(NSString *)type token:(NSString *)token{
-    NSDictionary *params = @{
-                             @"social": type,
-                             @"os": @"ios",
-                             @"device_token": [NSUUID UUID].UUIDString,
-                             @"facebook_token": token
-                             };
+- (void)loginWithService:(NSString *)type token:(NSString *)token {
+    NSDictionary *dictionary = @{
+                                 kSocial: type,
+                                 kOs: @"ios",
+                                 kDeviceToken: [NSUUID UUID].UUIDString
+                                 };
+    NSMutableDictionary *params =[[NSMutableDictionary alloc] initWithDictionary:dictionary];
+    if ([type isEqualToString:kGoogle]) {
+        params[kGoogleToken] = token;
+    } else {
+        params[kFacebookToken] = token;
+    }
+  
     NSLog(@"login with params = %@", params);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     SHOW_INDICATOR(self.view);
