@@ -391,7 +391,7 @@
                                     return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
                                     NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
-                                    [self loginWithService:@"FACEBOOK" token:fbToken];
+                                    [self loginWithService:kFacebook token:fbToken];
                                 }
                             }];
 }
@@ -406,14 +406,7 @@
         NSLog(@"error when sign in google: %@", error);
         return;
     }
-//    NSString *userId = user.userID;                  // For client-side use only!
-//    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-//    NSString *fullName = user.profile.name;
-//    NSString *givenName = user.profile.givenName;
-//    NSString *familyName = user.profile.familyName;
-//    NSString *email = user.profile.email;
-//    [self submitEmailAction:email];
-    [self loginWithService:@"GOOGLE" token:user.authentication.idToken];
+    [self loginWithService:kGoogle token:user.authentication.idToken];
 }
 
 - (void)loginWithService:(NSString *)type token:(NSString *)token{
@@ -434,9 +427,16 @@
                      // Login success
                      NSString *accessToken = object[@"access_token"];
                      if (accessToken) {
-                         [UserInfo shareInstance].userInfo = @{
-                                                               @"access_token": accessToken
-                                                               };
+                         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                         id userData = object[kUser];
+                         if (userData) {
+                             NSString *userLogin = userData[kUserLogin] == [NSNull null] ? @"" : userData[kUserLogin];
+                             [UserInfo shareInstance].userInfo = @{
+                                                                   kAccessToken: accessToken,
+                                                                   kUserLogin : userLogin
+                                                                   };
+                             [self saveUserInformation:object[kUser] context:appDelegate.managedObjectContext];
+                         }
                          if ([self isModal]) {
                              [self dismissViewControllerAnimated:YES completion:^{
                                  if (_completion) {
@@ -444,7 +444,6 @@
                                  }
                              }];
                          } else {
-                             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                              [appDelegate loginWithCompletion:nil];
                          }
                      }
@@ -457,6 +456,31 @@
              NSLog(@"error: %@", error);
              HIDE_INDICATOR(YES);
          }];
+}
+
+- (void)saveUserInformation:(id)userData context:(NSManagedObjectContext *)context {
+    CDUserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
+    CDUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
+    
+    user.cdAddress = userData[kAddress] == [NSNull null] ? nil : userData[kAddress];
+    user.cdAvatar = userData[kAvatarUrl] == [NSNull null] ? nil : userData[kAvatarUrl];
+    user.cdBio = userData[kBio] == [NSNull null] ? nil : userData[kBio];
+    user.cdCountry = userData[kCountry] == [NSNull null] ? nil : userData[kCountry];
+    user.cdEmail = userData[kEmail] == [NSNull null] ? nil : userData[kEmail];
+    user.cdFirstName = userData[kFirstname] == [NSNull null] ? nil : userData[kFirstname];
+    user.cdLastName = userData[kLastname] == [NSNull null] ? nil : userData[kLastname];
+    user.cdPhone = userData[kPhone] == [NSNull null] ? nil : userData[kPhone];
+    user.cdState = userData[kState] == [NSNull null] ? nil : userData[kState];
+    user.cdInstrument = userData[kFavouriteInstrument] == [NSNull null] ? nil : userData[kFavouriteInstrument];
+    user.cdSong = userData[kFavouriteSong] == [NSNull null] ? nil : userData[kFavouriteSong];
+    user.cdSocial = userData[kSocial] == [NSNull null] ? nil : userData[kSocial];
+    user.cdUserId = userData[kUserLogin] == [NSNull null] ? nil : userData[kUserLogin];
+    
+    userInfo.user = user;
+    NSError *error = nil;
+    if (![context save: &error]) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }
 }
 
 @end

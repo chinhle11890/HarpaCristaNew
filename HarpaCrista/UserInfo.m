@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "CDUserInfo+CoreDataClass.h"
 #import "CDUserInfo+CoreDataProperties.h"
+#import "Define.h"
 
 static NSString *KEY = @"userdefault";
 static NSString *USERINFO = @"userInfo";
@@ -90,12 +91,12 @@ static UserInfo *user = nil;
     [user update];
 }
 
-- (NSString *)email {
-    return _userInfo[@"email"];
+- (NSString *)userLogin {
+    return _userInfo[kUserLogin];
 }
 
 - (NSString *)accessToken {
-    return _userInfo[@"access_token"];
+    return _userInfo[kAccessToken];
 }
 
 

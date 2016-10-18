@@ -12,4 +12,28 @@
 // Define key for notification
 #define kNotificationUserLogin @"kNotificationUserLogin"
 
+// Define key
+#define kData @"data"
+#define kUser @"user"
+#define kFacebook @"FACEBOOK"
+#define kGoogle @"GOOGLE"
+#define kAccessToken @"access_token"
+#define kUserLogin @"user_login"
+#define kAddress @"address"
+#define kAvatarUrl @"avatar_url"
+#define kAvatar @"avatar"
+#define kBio @"bio"
+#define kCountry @"country"
+#define kEmail @"email"
+#define kFavouriteInstrument @"favorite_instrument"
+#define kFavouriteSong @"favorite_song"
+#define kFirstname @"first_name"
+#define kId @"id"
+#define kLastname @"last_name"
+#define kMiddlename @"middle_name"
+#define kPhone @"phone"
+#define kSocial @"social"
+#define kState @"state"
+
+
 #endif /* Define_h */

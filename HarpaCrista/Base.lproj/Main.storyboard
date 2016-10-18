@@ -591,7 +591,7 @@
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8K-h1-hYi" id="1CB-FP-G7v">
-                                            <frame key="frameInset" width="335" height="43"/>
+                                            <frame key="frameInset" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWO-kY-FRp">
@@ -1093,7 +1093,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NTH-RA-k3Z">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customFavoritoCell" id="sUK-Zk-cQP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customFavoritoCell" id="sUK-Zk-cQP">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sUK-Zk-cQP" id="rEz-cs-ben">
@@ -1221,7 +1221,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uf0-ea-1VI">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customMaisCell" id="MBR-a7-15d">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customMaisCell" id="MBR-a7-15d">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MBR-a7-15d" id="o2S-Nq-x1C">
@@ -1307,7 +1307,7 @@
                 <navigationController storyboardIdentifier="naviHinosVC" automaticallyAdjustsScrollViewInsets="NO" id="Hwl-jm-jKT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Hinos" id="laY-ws-HbR"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ke1-nw-hpS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ke1-nw-hpS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1388,7 +1388,7 @@
                 <navigationController storyboardIdentifier="FavoritosNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="REc-Ch-OOF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favoritos" id="u3e-Q0-DSm"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jrr-xO-wQU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jrr-xO-wQU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1411,7 +1411,7 @@
                 <navigationController storyboardIdentifier="SettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="2Cm-IO-Xc5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mais" id="5b0-kj-kzy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="u1d-dQ-b9w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="u1d-dQ-b9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1674,11 +1674,11 @@
                                 <color key="backgroundColor" red="0.27058823529411763" green="0.56470588235294117" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuSlideBarTableViewCell" id="XJm-4S-tkS" customClass="MenuSlideBarTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="282" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuSlideBarTableViewCell" id="XJm-4S-tkS" customClass="MenuSlideBarTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="1000" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XJm-4S-tkS" id="TGB-Gv-hge">
-                                            <frame key="frameInset" width="282" height="44"/>
+                                            <frame key="frameInset" width="1000" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ed7-KI-KwE">
@@ -1886,7 +1886,7 @@
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3s-22-1Kr" id="ldn-zd-DkU">
-                                            <frame key="frameInset" width="335" height="43"/>
+                                            <frame key="frameInset" width="335" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vS-eY-Fvf">
@@ -3067,7 +3067,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MetronomoNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="DeG-nf-MTK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pJp-PP-lFL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pJp-PP-lFL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3281,7 +3281,7 @@
             <objects>
                 <navigationController storyboardIdentifier="naviHomeVC" automaticallyAdjustsScrollViewInsets="NO" id="Y1t-Dm-AwX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mxQ-8U-3a2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mxQ-8U-3a2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.14901960784313725" green="0.49411764705882355" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

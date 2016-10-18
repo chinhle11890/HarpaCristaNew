@@ -14,6 +14,7 @@
 #import "CDUserInfo+CoreDataClass.h"
 #import "CDUser+CoreDataProperties.h"
 #import "AppDelegate.h"
+#import "Define.h"
 
 @interface ProfileViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
@@ -48,13 +49,28 @@
 
 #pragma mark - Call Webservice
 - (void)getUserInformation {
+    NSString *userId = [UserInfo shareInstance].userLogin;
+    if (!userId) {
+        return;
+    }
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDUserInfo"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"user.cdUserId == %@", userId];
+    NSError *error = nil;
+    NSArray *objects = [appDelegate.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (!error) {
+        // Show user profile
+        CDUserInfo *userInfo = objects.firstObject;
+        [self showUserInformation:userInfo.user];
+        return;
+    }
     AFHTTPSessionManager *manager = [BaseApi HTTPSessionManagerRequiredAuthorization:YES];
     SHOW_INDICATOR(self.navigationController.view);
     [manager GET:@"http://harpacca.com/api/public/api/users/get_profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         CommunicationHandler(task, responseObject, ^(BOOL success, id  _Nullable object) {
             if (success) {
                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                [self saveUserInformation:object[@"user"] context:appDelegate.managedObjectContext completion:^{
+                [self saveUserInformation:object[kUser] context:appDelegate.managedObjectContext completion:^{
                     HIDE_INDICATOR(YES);
                 }];
             } else {
@@ -85,32 +101,32 @@
             } else {
                 data = UIImagePNGRepresentation(image);
             }
-            [formData appendPartWithFileData:data name:@"avatar" fileName:@"photo.png" mimeType:@"image/png"];
+            [formData appendPartWithFileData:data name:kAvatarUrl fileName:@"photo.png" mimeType:@"image/png"];
         }
         if (_nameLabel.text) {
             NSMutableArray *name = [NSMutableArray arrayWithArray: [_nameLabel.text componentsSeparatedByString:@" "]];
             NSString *firstName = name.firstObject;
-            [formData appendPartWithFormData:[firstName dataUsingEncoding:NSUTF8StringEncoding] name:@"first_name"];
+            [formData appendPartWithFormData:[firstName dataUsingEncoding:NSUTF8StringEncoding] name:kFirstname];
             if (name.count > 0) {
                 [name removeObjectAtIndex:0];
                 NSString *lastName = [name componentsJoinedByString:@" "];
-                [formData appendPartWithFormData:[lastName dataUsingEncoding:NSUTF8StringEncoding] name:@"last_name"];
+                [formData appendPartWithFormData:[lastName dataUsingEncoding:NSUTF8StringEncoding] name:kLastname];
             }
         }
         if (_locationLabel.text) {
-            [formData appendPartWithFormData:[_locationLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"country"];
+            [formData appendPartWithFormData:[_locationLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:kCountry];
         }
         if (_bioLabel.text) {
-            [formData appendPartWithFormData:[_bioLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"bio"];
+            [formData appendPartWithFormData:[_bioLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:kCountry];
         }
         if (_emailLabel.text) {
-            [formData appendPartWithFormData:[_emailLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"email"];
+            [formData appendPartWithFormData:[_emailLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:kEmail];
         }
         if (_intrumentoLabel.text) {
-            [formData appendPartWithFormData:[_intrumentoLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"favorite_instrument"];
+            [formData appendPartWithFormData:[_intrumentoLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:kFavouriteInstrument];
         }
         if (_favouriesLabel.text) {
-            [formData appendPartWithFormData:[_favouriesLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:@"favorite_song"];
+            [formData appendPartWithFormData:[_favouriesLabel.text dataUsingEncoding:NSUTF8StringEncoding] name:kFavouriteSong];
         }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -127,44 +143,35 @@
 }
 
 - (void)saveUserInformation:(id)userData context:(NSManagedObjectContext *)context completion:(dispatch_block_t)completion {
-    NSString *userId = userData[@"id"] == [NSNull null] ? nil : [userData[@"id"] stringValue];
-    if (!userId) {
-        return;
-    }
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDUserInfo"];
-    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"user.cdUserId == %@", userId];
-    NSError *error = nil;
-    NSArray *objects = [context executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        return;
-    }
-    CDUserInfo *userInfo = objects.firstObject;
-    CDUser *user;
-    if (userInfo) {
-        user = userInfo.user;
-    } else {
-        userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
-        user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
-    }
-    user.cdAddress = userData[@"address"] == [NSNull null] ? nil : userData[@"address"];
-    user.cdAvatar = userData[@"avatar_url"] == [NSNull null] ? nil : userData[@"avatar_url"];
-    user.cdBio = userData[@"bio"] == [NSNull null] ? nil : userData[@"bio"];
-    user.cdCountry = userData[@"country"] == [NSNull null] ? nil : userData[@"country"];
-    user.cdEmail = userData[@"email"] == [NSNull null] ? nil : userData[@"email"];
-    user.cdFirstName = userData[@"first_name"] == [NSNull null] ? nil : userData[@"first_name"];
-    user.cdLastName = userData[@"last_name"] == [NSNull null] ? nil : userData[@"last_name"];
-    user.cdPhone = userData[@"phone"] == [NSNull null] ? nil : userData[@"phone"];
-    user.cdState = userData[@"state"] == [NSNull null] ? nil : userData[@"state"];
-    user.cdInstrument = userData[@"favorite_instrument"] == [NSNull null] ? nil : userData[@"favorite_instrument"];
-    user.cdSong = userData[@"favorite_song"] == [NSNull null] ? nil : userData[@"favorite_song"];
-    user.cdSocial = userData[@"social"] == [NSNull null] ? nil : userData[@"social"];
-    user.cdUserId = userId;
+    CDUserInfo *userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"CDUserInfo" inManagedObjectContext:context];
+    CDUser *user = [NSEntityDescription insertNewObjectForEntityForName:@"CDUser" inManagedObjectContext:context];
+    
+    user.cdAddress = userData[kAddress] == [NSNull null] ? nil : userData[kAddress];
+    user.cdAvatar = userData[kAvatarUrl] == [NSNull null] ? nil : userData[kAvatarUrl];
+    user.cdBio = userData[kBio] == [NSNull null] ? nil : userData[kBio];
+    user.cdCountry = userData[kCountry] == [NSNull null] ? nil : userData[kCountry];
+    user.cdEmail = userData[kEmail] == [NSNull null] ? nil : userData[kEmail];
+    user.cdFirstName = userData[kFirstname] == [NSNull null] ? nil : userData[kFirstname];
+    user.cdLastName = userData[kLastname] == [NSNull null] ? nil : userData[kLastname];
+    user.cdPhone = userData[kPhone] == [NSNull null] ? nil : userData[kPhone];
+    user.cdState = userData[kState] == [NSNull null] ? nil : userData[kState];
+    user.cdInstrument = userData[kFavouriteInstrument] == [NSNull null] ? nil : userData[kFavouriteInstrument];
+    user.cdSong = userData[kFavouriteSong] == [NSNull null] ? nil : userData[kFavouriteSong];
+    user.cdSocial = userData[kSocial] == [NSNull null] ? nil : userData[kSocial];
+    user.cdUserId = userData[kUserLogin] == [NSNull null] ? nil : userData[kUserLogin];
     
     userInfo.user = user;
-    error = nil;
+    NSError *error = nil;
     if (![context save: &error]) {
         NSLog(@"Error: %@", [error localizedDescription]);
     }
+    [self showUserInformation:user];
+    if (completion) {
+        completion();
+    }
+}
+
+- (void)showUserInformation:(CDUser *)user {
     [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:user.cdAvatar] placeholderImage:[UIImage imageNamed:@"icn_user"]];
     _nameLabel.text = [NSString stringWithFormat:@"%@ %@", user.cdFirstName, user.cdLastName];
     _locationLabel.text = user.cdCountry;
@@ -172,9 +179,6 @@
     _intrumentoLabel.text = user.cdInstrument;
     _favouriesLabel.text = user.cdSong;
     _emailLabel.text = user.cdEmail;
-    if (completion) {
-        completion();
-    }
 }
 
 - (IBAction)didClickEditButton:(id)sender {

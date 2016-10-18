@@ -9,7 +9,7 @@
 
 @interface UserInfo : NSObject
 
-@property (strong, nonatomic, readonly) NSString *email;
+@property (strong, nonatomic, readonly) NSString *userLogin;
 @property (strong, nonatomic, readonly) NSString *accessToken;
 @property (assign, nonatomic, readonly) BOOL isLogin;
 // save infomation of user login
