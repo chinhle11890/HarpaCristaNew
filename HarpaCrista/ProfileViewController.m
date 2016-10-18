@@ -85,7 +85,7 @@
             } else {
                 data = UIImagePNGRepresentation(image);
             }
-            [formData appendPartWithFileData:data name:@"avatar_url" fileName:@"photo.png" mimeType:@"image/png"];
+            [formData appendPartWithFileData:data name:@"avatar" fileName:@"photo.png" mimeType:@"image/png"];
         }
         if (_nameLabel.text) {
             NSMutableArray *name = [NSMutableArray arrayWithArray: [_nameLabel.text componentsSeparatedByString:@" "]];

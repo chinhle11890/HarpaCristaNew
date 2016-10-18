@@ -390,7 +390,8 @@
                                     NSLog(@"login facebook cancelled: %d", result.isCancelled);
                                     return;
                                 } else if ([result.grantedPermissions containsObject:@"email"]) {
-                                    [self loginWithService:@"FACEBOOK"];
+                                    NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
+                                    [self loginWithService:@"FACEBOOK" token:fbToken];
                                 }
                             }];
 }
@@ -410,55 +411,52 @@
 //    NSString *fullName = user.profile.name;
 //    NSString *givenName = user.profile.givenName;
 //    NSString *familyName = user.profile.familyName;
-    NSString *email = user.profile.email;
-    [self submitEmailAction:email];
-    
+//    NSString *email = user.profile.email;
+//    [self submitEmailAction:email];
+    [self loginWithService:@"GOOGLE" token:user.authentication.idToken];
 }
 
-- (void)loginWithService:(NSString *)type {
-    if ([type isEqualToString:@"FACEBOOK"]) {
-        NSString *fbToken = [FBSDKAccessToken currentAccessToken].tokenString;
-        NSDictionary *params = @{
-                                 @"social": type,
-                                 @"os": @"ios",
-                                 @"device_token": [NSUUID UUID].UUIDString,
-                                 @"facebook_token": fbToken
-                                 };
-        NSLog(@"login with params = %@", params);
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        SHOW_INDICATOR(self.view);
-        [manager POST:@"http://harpacca.com/api/public/api/users/social"
-           parameters:params
-             progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                 CommunicationHandler(task, responseObject, ^(BOOL success, id  _Nullable object) {
-                     if (success) {
-                         // Login success
-                         NSString *accessToken = object[@"access_token"];
-                         if (accessToken) {
-                             [UserInfo shareInstance].userInfo = @{
-                                                                   @"access_token": accessToken
-                                                                   };
-                             if ([self isModal]) {
-                                 [self dismissViewControllerAnimated:YES completion:^{
-                                     if (_completion) {
-                                         _completion(YES);
-                                     }
-                                 }];
-                             } else {
-                                 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-                                 [appDelegate loginWithCompletion:nil];
-                             }
+- (void)loginWithService:(NSString *)type token:(NSString *)token{
+    NSDictionary *params = @{
+                             @"social": type,
+                             @"os": @"ios",
+                             @"device_token": [NSUUID UUID].UUIDString,
+                             @"facebook_token": token
+                             };
+    NSLog(@"login with params = %@", params);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    SHOW_INDICATOR(self.view);
+    [manager POST:@"http://harpacca.com/api/public/api/users/social"
+       parameters:params
+         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             CommunicationHandler(task, responseObject, ^(BOOL success, id  _Nullable object) {
+                 if (success) {
+                     // Login success
+                     NSString *accessToken = object[@"access_token"];
+                     if (accessToken) {
+                         [UserInfo shareInstance].userInfo = @{
+                                                               @"access_token": accessToken
+                                                               };
+                         if ([self isModal]) {
+                             [self dismissViewControllerAnimated:YES completion:^{
+                                 if (_completion) {
+                                     _completion(YES);
+                                 }
+                             }];
+                         } else {
+                             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                             [appDelegate loginWithCompletion:nil];
                          }
-                     } else {
-                         
                      }
-                     HIDE_INDICATOR(YES);
-                 });
-             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                 NSLog(@"error: %@", error);
+                 } else {
+                     
+                 }
                  HIDE_INDICATOR(YES);
-             }];
-    }
+             });
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             NSLog(@"error: %@", error);
+             HIDE_INDICATOR(YES);
+         }];
 }
 
 @end
