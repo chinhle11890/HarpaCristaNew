@@ -11,8 +11,9 @@
 #import "NSArray+Json.h"
 #import "LRRestyResponse+Json.h"
 #import <Foundation/Foundation.h>
-#import "Constants.h"
 #import "UserInfo.h"
+#import "AppDelegate.h"
+#import "Define.h"
 
 @implementation NSDictionary (Utility)
 
@@ -192,16 +193,28 @@
 
 void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion) {
     NSLog(@"Response object = %@", responseObject);
-    NSInteger code = [responseObject[@"code"] integerValue];
+    NSInteger code = [responseObject[kCode] integerValue];
     if (code == 100) {
-        id object = responseObject[@"data"];
+        id object = responseObject[kData];
         if (completion) {
             completion(YES, object);
         }
     } else {
-        id error = responseObject[@"error"];
-        if (completion) {
-            completion(NO, error);
+        id error = responseObject[kError];
+        NSString *errorString;
+        if ([error isKindOfClass:[NSString class]]) {
+            errorString = error;
+        } else if ([error isKindOfClass:[NSArray class]]) {
+            errorString = [((NSArray *)error) componentsJoinedByString:@" "];
         }
+        UIViewController *viewController = [[UIApplication sharedApplication].delegate window].rootViewController;
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:kAppName message:errorString preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:kOk style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if (completion) {
+                completion(NO, error);
+            }
+        }];
+        [alertController addAction:okAction];
+        [viewController presentViewController:alertController animated:YES completion:nil];
     }
 }

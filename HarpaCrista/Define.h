@@ -13,6 +13,11 @@
 #define kNotificationUserLogin @"kNotificationUserLogin"
 
 // Define key
+#define kAppName @"Harpa Cristã"
+#define kOk @"Ok"
+#define kError @"error"
+#define kCode @"code"
+
 #define kData @"data"
 #define kUser @"user"
 #define kFacebook @"FACEBOOK"
