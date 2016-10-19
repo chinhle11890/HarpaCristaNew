@@ -17,6 +17,7 @@
 #define kOk @"Ok"
 #define kError @"error"
 #define kCode @"code"
+#define kMessage @"message"
 
 #define kData @"data"
 #define kUser @"user"

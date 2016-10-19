@@ -423,7 +423,7 @@
     }
   
     NSLog(@"login with params = %@", params);
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [BaseApi HTTPSessionManagerRequiredAuthorization:NO];
     SHOW_INDICATOR(self.view);
     [manager POST:@"http://harpacca.com/api/public/api/users/social"
        parameters:params
@@ -460,6 +460,7 @@
              });
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"error: %@", error);
+             CommunicationhandlerError(task, error);
              HIDE_INDICATOR(YES);
          }];
 }

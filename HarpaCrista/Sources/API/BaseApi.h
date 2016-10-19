@@ -68,6 +68,7 @@ typedef void (^ResponseFailBlock)(NSInteger code, NSError * error);
 @end
 
 void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull responseObject, ResponseCompletion completion);
+void CommunicationhandlerError(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error);
 
 //define the HTProgressHUD
 

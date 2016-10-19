@@ -218,3 +218,27 @@ void CommunicationHandler(NSURLSessionDataTask * _Nonnull task, id _Nonnull resp
         [viewController presentViewController:alertController animated:YES completion:nil];
     }
 }
+
+void CommunicationhandlerError(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+    UIViewController *viewController = [[UIApplication sharedApplication].delegate window].rootViewController;
+    
+    NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    if (errorData) {
+        NSDictionary *serializedData = [NSJSONSerialization JSONObjectWithData:errorData options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"TserializedData -> %@",serializedData);
+        NSDictionary *errorInfo = [serializedData[@"errors"] firstObject];
+        NSUInteger statusCode   = [errorInfo[@"error_code"] integerValue];
+        if (statusCode > 0 ) {
+            NSString *message = errorInfo[kMessage];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:kAppName message:message preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:kOk style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:okAction];
+            [viewController presentViewController:alertController animated:YES completion:nil];
+        }
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:kAppName message:@"Please check your connection" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:kOk style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okAction];
+        [viewController presentViewController:alertController animated:YES completion:nil];
+    }
+}
